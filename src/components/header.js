@@ -5,9 +5,9 @@ import React from 'react'
 import tw, { styled } from 'twin.macro';
 
 const HeaderContainer = styled.div`
-  ${tw`relative bg-white overflow-hidden`}
+  ${tw`flex justify-between`}
   > nav {
-    ${tw`relative flex items-center justify-between sm:h-10 lg:justify-start bg-gray-200`}
+    ${tw`relative flex items-center justify-between sm:h-10 lg:justify-start`}
   }
 
   ul {
@@ -20,23 +20,26 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderLogo = styled.div`
-  ${tw`flex items-center flex-grow flex-shrink-0 lg:flex-grow-0`}
+  ${tw`flex items-center`}
+  a {
+    ${tw`text-white`}
+  }
 `;
 
 const MenuLinks = styled(Link)`
-  ${tw`block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-500 transition duration-150 ease-in-out`}
+  ${tw`block px-3 py-2 text-base font-medium text-white hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out`}
 `
 
 const Header = ({ siteTitle }) => (
   <HeaderContainer>
-    <nav>
-      <HeaderLogo>
+    <HeaderLogo>
         <Link
           to="/"
         >
           {siteTitle}
         </Link>
-      </HeaderLogo>
+    </HeaderLogo>
+    <nav>
       <ul>
           <li>
             <MenuLinks to="/">
