@@ -56,6 +56,11 @@ const Header = ({ siteTitle }) => (
               Portfolio
             </MenuLinks>
           </li>
+          <li>
+            <MenuLinks to="/blog/1">
+              Blog
+            </MenuLinks>
+          </li>
       </ul>
     </nav>
   </HeaderContainer>

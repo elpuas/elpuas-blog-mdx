@@ -1,9 +1,11 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { MDXProvider } from '@mdx-js/tag'
 import Layout from './layout'
+import Helmet from 'react-helmet'
 
-function BlogPostLayout({ children, pageContext }) {
+const BlogPostLayout = ({ children, pageContext }) => {
   const { title, author, date } = pageContext.frontmatter
+  console.log( pageContext.frontmatter );
   return (
     <Layout>
       <Helmet>
@@ -12,10 +14,12 @@ function BlogPostLayout({ children, pageContext }) {
       <article>
         <header>
           <h1>{title}</h1>
-          <span>Author: {author}</span>
-          <time>Date: {date}</time>
+          <div>
+            <p>Author: {author} </p>
+            <time>Date: {date.split('T')[0]}</time>
+          </div>
         </header>
-        {children}
+        <MDXProvider>{children}</MDXProvider>
       </article>
     </Layout>
   )

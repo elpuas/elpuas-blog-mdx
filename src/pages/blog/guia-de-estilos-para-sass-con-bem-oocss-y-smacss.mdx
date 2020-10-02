@@ -1,0 +1,277 @@
+---
+title: Guia de estilos para SASS con BEM, OOCSS y SMACSS
+author: Alfredo Navas
+date: 2017-05-15
+---
+
+![wpcli](https://makzan.net/images/introducing-web-design/preprocessing.png)
+
+Todo buen desarrollador Front end deberia de hacer buen uso de las guías de estilo. Cuando nuestros proyectos se vuelven más complejos, son más grandes, mantener el código se vuelven más difícil. Sobre todo si se trabaja en equipo.
+
+Si uno construye el proyecto desde cero, es más fácil desarrollar nuevas funciones, arreglar bugs y cosas por el estilo. Usted sabe cómo funciona, pero si otro de sus compañeros de trabajo debe desarrollar otra característica es muy difícil, sin una base común.
+
+El desarrollador debe entender el entorno y, a menudo, es difícil leer el código o obtener una visión general, de qué módulos están disponibles.
+
+Entonces este caso llega, y hay que agregar o modificar algo, entonces podemos repetir código o este se torna desordenado.
+
+Posibles casos, que se pueden declarar en un guía de estilo:
+
+- ¿Tabs o espacios en blanco?
+- Directorio-Estructura
+- Estructura de los módulos
+- Trabajar con Breakpoints
+- Naming Conventions
+- Manejo de variables
+- Importar archivos
+- Categorización de las reglas CSS
+- Generalmente CSS Stuff
+
+## Estructura de los Directorios
+
+Tener una buena estructura para su proceso de desarrollo es tan importante y lo básico de todo. Usted debe prestar atención que la base es casi igual en cada proyecto - esto le ayudará a usted y a sus compañeros de equipo a incorporarla mas fácil en proyectos nuevos. Te mostraré mi estructura personal (basada en SMACSS):
+
+```
+
+scss/
+|- _base/
+|  |- _config.scss
+|  |- _presets.scss
+|  |- _headings.scss
+|  |- ...
+
+|- _layouts/
+|  |- _l-base.scss
+|  |- _l-grid.scss
+
+|- _modules/
+|  |- _m-buttons.scss
+|  |- _m-tabs.scss
+
+|- _states/
+|  |- _s-buttons.scss
+|  |- _s-tabs.scss
+|- application.scss
+
+stylesheets/
+|- application.min.css
+```
+
+En Corto:
+
+1. Para cada nuevo módulo crear un nuevo archivo para él
+2. Prefijo de nombres de archivo (mejor búsqueda en su editor)
+3. Partials obtener un guión bajo como un prefijo
+4. Cortar estados y módulos en diferentes secciones
+5. Un solo archivo para importar todos los parciales como **application.scss**
+
+### Estructura de un módulo
+
+¿Una estructura para el módulo? Un módulo puede tener muchos tipos diferentes o convertirse en algo muy complejo
+
+```
+
+// Config
+$button-bgcolor: $blue;
+$button-fontcolor: $white;
+
+// Base
+.m-button {}
+.m-button--primary {}
+.m-button--secondary {}
+
+// States
+@import "../_states/_s-buttons";
+```
+
+### El módulo tiene tres secciones diferentes
+
+1. Al principio tenemos un área para **Config.** Allí defino colores específicos u otras cosas de la configuración como los colores.
+2. Ahora la parte principal del archivo, **Base.** Escribo todos los estilos aquí para todos los tipos del módulo.
+3. El pie de página llama **States.** Aquí importo los estados para el módulo actual. No más.
+
+## Importar archivos
+
+En un proyecto hay tantos parciales. No me gusta incluir archivos en otros archivos. Yo prefiero tener un solo archivo como **application.scss** y allí incluyo todos los demás. Para ello he creado una estructura como en este ejemplo:
+
+```
+
+// Base
+@import "_base/_config",
+        "_base/_presets",
+        "_base/_headings";
+// Layouts
+@import "_layouts/_l-default";
+
+// Modules
+@import "_modules/_m-buttons",
+        "_modules/_m-tabs";
+```
+
+### En corto:
+
+1. Estructura en base, layouts y módulos
+2. Para cada sección sólo declare @import una vez
+3. Eliminar  "file-ending"
+
+## Convenciones de nomenclatura (BEM / SMACSS)
+
+**Bloque, Elemento, Arquitectura modificadora / modular y modular para CSS**
+
+Me encantan los dos métodos. Por encima de todo [SMACSS](https://smacss.com/) es una lectura obligada para todos los desarrolladores de front end, que quieren escribir front ends escalables. Jonathan Snook es el autor y escribió toda su experiencia en un pequeño libro. Combinar estos dos métodos es la mejor manera de manejar el nombre.
+
+```
+
+// Layouts
+// Prefix "l-"
+.l-default {}
+
+// Modules
+// Prefix "m-"
+.m-accordion {}
+
+// Elemento hijo de accordion
+// Separador: "__"
+.m-accordion__trigger {}
+
+// Modificadores de accordion
+// Separator: "--"
+.m-accordion--plain {}
+
+// Estados
+// mas que nada con prefijo como "is-"
+.is-active {}
+.is-hidden {}
+```
+
+### Variables
+
+Al principio creamos una paleta para uso global como la de colores. Lo definimos en el **\_config.scss**. Si tenemos algunas variables específicas, entonces lo ponemos en el archivo para el módulo. La legibilidad es tan importante y por eso uso separadores a la hora de nombrar las variables: un guión.
+
+```
+
+// Colores (global)
+$white: #fff;
+$blue: #1675d6;
+$red: #e8402a;
+
+// Nombres especificos
+$button-bgcolor: $blue;
+$button-fontcolor: $white;
+```
+
+## Manejo de Breakpoints: Element Queries
+
+Element Queries con Sass son mucho mejores que las Media Queries. si tiene todos sus estilos específicos de queries en un archivo propio eso no esta bien, creo. Si usted escribe módulos, entonces usted debe declarar el comportamiento responsive allí. No en otro archivo.
+
+```
+
+// SCSS
+.m-navigation {
+  &:after {
+    @media screen and (min-width: 767px) {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  li {
+    display: block;
+
+    @media screen and (min-width: 767px) {
+      float: left;
+    }
+  }
+}
+
+// CSS Generado
+@media screen and (min-width: 767px) {
+  .m-navigation:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.m-navigation li {
+  display: block;
+}
+
+@media screen and (min-width: 767px) {
+  .m-navigation li {
+    float: left;
+  }
+}
+```
+
+No es importante para el rendimiento que sólo tengamos una declaración de los Media Query. Debido a esto podemos usarlo más como **Element Queries**. Lea más sobre esta situación en un [blogpost de Anselm Hannemann](http://helloanselm.com/2014/web-performance-one-or-thousand-media-queries/), que se hace la misma pregunta.
+
+Categorización de las reglas CSS
+
+Si escribo CSS / SCSS trato de ser coherente y establezco reglas para todo tipo de cosas. Debido a esto tengo reglas para categorizar mis estilos.
+
+```
+// Element-Base
+.element {
+  margin: 10px;
+  padding: 10px;
+
+  border: 1px solid red;
+  background: blue;
+
+  color: white;
+  font-size: 16px;
+
+  -webkit-transform: translate3d(0,0,0);
+}
+```
+
+1. box margin, padding, display, etc.
+2. Bordes y Fondos (backgrounds) border, border-radius, background-color, etc.
+3. Textos color, font-size, text-transform, etc.
+4. Otras cosas animations, transforms, etc.
+
+## Reglas en el CSS
+
+### Evite los ID
+
+Los **IDs** son muy difíciles. Son muy específicos y mas que todo necesarios para JS. La mejor manera es usar las clases.
+
+## Evite los **!important**
+
+Si usted necesita esto, que va hay algo malo en su arquitectura CSS, porque lo necesitara sólo si desea sobrescribir estilos. Si su estructura es limpia, usted no los necesitará. Es como tratar de matar moscas con un cañón.
+
+### Evite el selector hijo
+
+En mis inicios lo usé a menudo, pero cada vez más aprendí que hace al módulo muy específico. Depende mucho de la estructura de su html, pero ¿qué pasa si se cambia el orden? pues utilice las clases!
+
+```
+
+// Mal Ejemplo
+// selector-hijo
+.m-tabs > li {}
+
+// Buen Ejemplo
+// uso de clases
+.m-tabs .m-tabs__trigger {}
+
+// Mejor Ejemplo
+// menor anidación
+.m-tabs__trigger {}
+```
+
+CSS Wizardy hizo un [articulo](https://csswizardry.com/2012/10/a-classless-class-on-using-more-classes-in-your-html/) sobre esto. Le recomiendo seguir el enfoque de él y utilizar más las clases.
+
+## Otras Recomendaciones
+
+1. En general, dos espacios en blanco en lugar de pestañas para la sangría
+2. Un espacio en blanco entre elementos y tirantes
+3. Saltos de línea entre estilos y elementos nuevos
+4. Saltos de línea después de cerrar los frenos
+5. Utilice códigos hexadecimales en lugar de códigos RGB para los colores
+6. Convertir los códigos hexadecimales a RGB con SASS Mal ejemplo: Color: rgba (255, 255, 255,, 3); Buen ejemplo: Color: rgba (# 000, .3);
+
+Para mi escribir CSS es poesía, y con la llegada de los preprosesadores no pude ser mas feliz, espero que esta guía les ayude a escribir mejor en SASS/CSS, te aseguro que tu equipo estará tan feliz como tu.
+
+Basado en un articulo escrito por [tim hartmann](https://github.com/timhartmann/Scss-Styleguide), quieres saber mas de [SASS](http://sass-lang.com/), [BEM](http://getbem.com/introduction/), [OOCSS](https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/) y [SMACSS](http://vanseodesign.com/css/smacss-introduction/).
+
+Hagamos siempre de la WEB un lugar mejor!

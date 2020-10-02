@@ -1,0 +1,63 @@
+---
+title: Como instalar WordPress en Amazon Lightsail
+author: Alfredo Navas
+date: 2017-07-03
+---
+
+Amazon Lightsail es el último producto de AWS (Amazon Web Services). AWS es conocido popularmente por el cloud computing de gama alta y sus servicios más utilizados como EC2 y s3.
+
+AWS está prestando servicios en la nube desde 2006 y sigue siendo el proveedor de servicios de nube más grande del mundo. AWS cuenta con un centro de datos en 12 ubicaciones que le facilitan la implementación de sus servidores en la ubicación más cercana a su cliente.
+
+### Cuanto Cuesta Amazon Lightsail?
+
+Amazon Lightsail te cobran mensualmente por los recursos que usas. El rango de precios está disponible desde 5 $ -80 $ por mes.
+
+![amazon-lightsail-pricing](https://www.elpuas.com/wp-content/uploads/2017/07/amazon-lightsail-pricing.png)
+
+### Características de AWS Lightsail
+
+Con cada Instancia Lightsail de AWS obtendrá 1 dirección IP estática, Acceso completo al terminal SSH. Gestión de DNS que le ayudará a alojar su sitio web en el servidor virtual en cuestión de minutos. Supervisión del servidor para supervisar todos los servicios y acceso completo a otros servicios de AWS.
+
+que viene en todos los planes de Lightsail:
+
+- Dirección IP estática
+- Acceso a la terminal SSH
+- Gestión de DNS
+- Consola de administración intuitiva
+- Acceso a los servicios de AWS
+- Gestión de claves SSH
+- Supervisión del servidor
+
+### Cómo instalar WordPress como una instancia de Lightsail de Amazon
+
+Amazon Lightsail es muy simple y más potente que Digital Ocean. Usted puede crear fácilmente un servidor privado virtual con sus propios requisitos.
+
+Administrar un sitio de WordPress en Amazon Lightsail es muy simple con la interfaz fácil de usar. Así que vamos a ver cómo instalar WordPress en Amazon Lightsail Instance.
+
+1\. Crea una cuenta en Amazon Lightsail.
+
+2\. Abra el Dashboard de AWS Lightsail. ![Amazon-Lightsail-dashboard](https://www.elpuas.com/wp-content/uploads/2017/07/Amazon-Lightsail-dashboard.png)
+
+3\. Haga clic en crear una instancia y seleccione la aplicación de WordPress en la siguiente pantalla. ![lightsail-wordpress](https://www.elpuas.com/wp-content/uploads/2017/07/lightsail-wordpress.png)
+
+4\. Seleccione el plan AWS Lightsail según su requerimiento. ![aws-lightsail-plan](https://www.elpuas.com/wp-content/uploads/2017/07/aws-lightsail-plan.png)
+
+5\. Seleccione la ubicación del centro de datos y nombre la instancia. ![aws-lightsail-datacenter](https://www.elpuas.com/wp-content/uploads/2017/07/aws-lightsail-datacenter.jpg)
+
+6\. Ahora la aplicación de WordPress se desplegará en la instancia.
+
+![lightsail-instance](https://www.elpuas.com/wp-content/uploads/2017/07/lightsail-instance.jpg)
+
+7\. El nombre de usuario predeterminado para WordPress es `user`.
+
+8\. Para obtener la contraseña para la aplicación de WordPress es necesario conectarse a la aplicación a través de SSH.
+
+![lightsail-instance](https://www.elpuas.com/wp-content/uploads/2017/07/lightsail-instance-1.jpg)
+
+9\. Haga clic en conectar y escriba `cat bitnami_application_password`​ para obtener la contraseña de su aplicación de WordPress.
+
+![console](https://www.elpuas.com/wp-content/uploads/2017/07/console.jpg)
+
+**Su aplicación de WordPress se implementará en la instancia Lightsail de Amazon. Puedes probar  Lightsail 1 mes gratis.**
+
+Si tiene alguna duda, le recomiendo extender su conocimiento revisando toda la documentación en: https://amazonlightsail.com/docs/

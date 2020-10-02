@@ -12,7 +12,10 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
-        // defaultLayout: require.resolve('./src/templates/blog-post-layouts.js'),
+        defaultLayouts: {
+          posts: require.resolve("./src/components/blog-post-layout.js"),
+          default: require.resolve("./src/components/blog-post-layout.js"),
+        },
       },
     },
     'gatsby-plugin-react-helmet',
@@ -33,8 +36,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/blog`
+        name: `blog`,
+        path: `${__dirname}/src/pages/blog`
       }
     },
     'gatsby-plugin-transition-link',

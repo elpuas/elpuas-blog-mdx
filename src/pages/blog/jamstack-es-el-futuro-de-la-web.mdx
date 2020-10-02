@@ -1,0 +1,101 @@
+---
+title: JAMstack es el futuro de la Web?
+author: Alfredo Navas
+date: 2018-08-13
+---
+
+### Que es el JAMstack?
+
+JAMstack significa JavaScript, API y Markup. El término fue acuñado por Mathias Biilmann para describir una "Arquitectura moderna de desarrollo web basada en JavaScript del lado del cliente, API reutilizables y un Markup preconstruido.
+
+La naturaleza estática de una aplicación JAMstack hace que el escalado sea fácil y causa poca o ninguna sobrecarga de desarrollo. El enfoque JAMstack también puede mejorar la postura de seguridad de su aplicación.
+
+Otro beneficio es la gran cantidad de funcionalidades que tradicionalmente se procesaban en el back-end, ahora se lleva a cabo en el navegador del usuario. Y el hecho de que el Stack está basado en JavaScript es una gran ventaja para los desarrolladores web.
+
+### Un ejemplo JAMstack
+
+Imagine una solución basada en CMS. Para cada visitante, la aplicación web debería generar una serie de consultas de bases de datos back-end para reunir la información necesaria para generar una página web y enviarla de vuelta al usuario.
+
+Con una aplicación JAMstack, usted sirve HTML generado en lugar de procesar documentos en vivo en el servidor. Esto asegura tiempos de carga más rápidos, reduce los riesgos de seguridad y es una solución que es fácil de integrar con un CDN.
+
+Pero la verdadera belleza del enfoque JAMstack es quizás lo fácil que es obtener contenido de APIs de terceros. Porque no importa cuán bien elaboradas sean sus páginas pregeneradas, probablemente tendrá que obtener datos adicionales de fuentes externas en algún momento, como WordPress por ejemplo.
+
+### Generadores de sitios estáticos, ¿que son?
+
+![](https://www.elpuas.com/wp-content/uploads/2018/08/jamstack-ssg.jpg)
+
+Los sitios estáticos no son nuevos. Eran lo que usamos para construir la web antes de que los CMS dinámicos (WordPress, Drupal, etc.) se hicieran cargo.
+
+¿Qué hay de nuevo, entonces? Las herramientas modernas -SSG ( Static Site Generators, por sus siglas en inglés ), principalmente- que surgieron en los últimos años ampliaron las capacidades de los sitios estáticos.
+
+En pocas palabras, un generador de sitios estáticos toma el contenido de su sitio, lo aplica a las plantillas y genera una estructura de archivos HTML puramente estáticos, listos para ser entregados a los visitantes.
+
+Este proceso aporta su parte de beneficios en comparación con los CMS tradicionales.
+
+### ¿Por qué usarlos?
+
+**Tiempos de carga rápidos.**
+
+Tener que extraer dinámicamente información de una base de datos cada vez que un visitante golpea una página en un sitio de contenido pesado puede ocasionar retrasos que causan frustración y rebotes.
+
+Los SSG sirven archivos ya compilados en el navegador, reduciendo los tiempos de carga por un amplio margen.
+
+**Seguridad y fiabilidad**
+
+Una de las mayores amenazas de desarrollar con un CMS dinámico es la falta de seguridad. Su necesidad de mayores infraestructuras del lado del servidor abre el camino para posibles infracciones.
+
+Con configuraciones estáticas, hay poca o ninguna funcionalidad en el lado del servidor.
+
+**Flexibilidad**
+
+Los CMS tradicionales cuestionados y engorrosos son restrictivos. La única forma de escalar es con los complementos existentes y la personalización está limitada a las plataformas de tematización disponibles. Eso es genial si eres un usuario no técnico, pero los desarrolladores rápidamente se encuentran atados.
+
+Los SSG pueden necesitar de habilidades más técnicas pero recompensará a los desarrolladores con más libertad. La mayoría de ellos también tienen ecosistemas de plugins, tematización y servicios de terceros fáciles de conectar. Además, la extensibilidad usando su lenguaje de programación central no tiene límites.
+
+**Sus debilidades están ... desapareciendo.**
+
+Con un ecosistema cada vez mayor que rodea el desarrollo de sitios estáticos, muchos de sus principales problemas son encontrar respuestas a través de nuevas herramientas.
+
+La administración de contenido y las tareas administrativas pueden ser un desafío para los usuarios finales que no tienen una formación técnica. Las buenas noticias son que hay una impresionante cantidad de Headless CMS listos para completar su SSG. La diferencia entre los Headless CMS y los tradicionales es que usará los primeros solo para tareas de "administración de contenido", no para plantillas y generación de contenido frontend.
+
+### Gatsby - Un generador de sitios estáticos para React
+
+![](https://www.elpuas.com/wp-content/uploads/2018/08/jamstack-gatsby.jpg)
+
+Gatsby.js es un generador estático de PWA (Progressive Web App). Solo extrae HTML, CSS, datos y JavaScript críticos para que su sitio pueda cargarse lo más rápido posible.
+
+Su rico ecosistema de plugins permite que un sitio web obtenga datos de una variedad de fuentes, incluidos Headless CMS, servicios SaaS, API, bases de datos, sistemas de archivos y más.
+
+Gatsby tiene una amplia gama de aplicaciones y es una opción sólida para sitios que necesitan utilizar datos de muchas fuentes. Está en camino hacia la cima, no se sorprenda si se convierte en el SSG número uno en los próximos meses.
+
+![](https://www.elpuas.com/wp-content/uploads/2018/08/jamstack-gatsby-code.jpg)
+
+Los plugins son paquetes Node.js que implementan las API de Gatsby. Le permiten resolver fácilmente problemas comunes de compilación del sitio web, e. configura Sass, agrega soporte de markdown, procesa imágenes, etc.
+
+Para sitios más grandes / complejos, le permiten modularizar las personalizaciones de su sitio en complementos específicos del sitio.
+
+Gatsby tiene un conjunto grande y creciente de complementos. Y no podía faltar uno para WordPress y su REST API
+
+Si quieres saber más de Gatsby échale un vistazo a la documentación: [https://www.gatsbyjs.org/docs/](https://www.gatsbyjs.org/docs/)
+
+### Netlify
+
+![](https://www.elpuas.com/wp-content/uploads/2018/08/jamstack-netlify.jpg)
+
+Netlify básicamente inicia su propio tipo de repositorio que inicializa tanto a un repositorio de Github como a sus propios servicios. Luego, esas actualizaciones se ejecutan y se distribuyen a través de una amplia red de CDN (Content Delivery Network ) para entregar páginas estáticas preconstruidas a los visitantes, con Netlify eligiendo los mejores servicios disponibles en la nube. Netlify luego distribuye todos esos sitios estáticos a través de su propia red de CDN, lo que significa que cuando los visitantes acceden a esas páginas ya están preconstruidas.
+
+Netlify funciona con todos los generadores de sitios estáticos y los últimos frontend frameworks de JavaScript. Netlify lo logra usando un comando de compilación y el directorio público de su proyecto al conectar su repo de Git a Netlify.
+
+Agregue sus cambios a su repositorio local, confírmelos e ingrese a su repositorio GitHub (o BitBucket, o GitLab). Netlify mira en el repositorio  los cambios y reconstruye según sea necesario para todas los "branches".
+
+Netlify proporciona más implementaciones con opciones de Drag and Drop. Si tiene un proyecto almacenado en un directorio en su máquina de producción, puede iniciar una sesión en Netlify, arrastrar el directorio a la página y el sitio cargará e implementará automáticamente.
+
+Un flujo de trabajo todo en uno que combina implementación global, integración continua y HTTPS automático. Y eso es solo el comienzo.
+
+Si quieres saber más: [https://www.netlify.com/](https://www.netlify.com/)
+
+El JAMstack y los sitios estáticos parecen ser el futuro de la web. Quieres saber mas o por dónde empezar? Aquí hay una guia de buenas prácticas para tomar en cuenta [https://jamstack.org/best-practices/](https://jamstack.org/best-practices/)
+
+Te gusto este nuevo stack? Quieres implementarlo en tu próxima idea, que tal si lo hacemos juntos? [conversemos](/contact)
+
+Sources: [https://www.gatsbyjs.org](https://www.gatsbyjs.org), [https://www.contentful.com/r/knowledgebase/jamstack-cms/](https://www.contentful.com/r/knowledgebase/jamstack-cms/), [https://medium.com/@ryanwiemer/gatsby-and-the-jam-stack-91e31508f364](https://medium.com/@ryanwiemer/gatsby-and-the-jam-stack-91e31508f364), [https://www.netlify.com/](https://www.netlify.com/), [https://techcrunch.com/2016/08/17/netlify-a-sevice-for-quickly-rolling-out-static-websites-raises-2-1m/](https://techcrunch.com/2016/08/17/netlify-a-sevice-for-quickly-rolling-out-static-websites-raises-2-1m/)

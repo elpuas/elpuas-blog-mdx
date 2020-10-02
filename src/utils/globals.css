@@ -1,10 +1,16 @@
 @tailwind base;
 
-html {
-
-    background: black;
+@layer base {
+  h1 {
+    @apply text-6xl;
+    @apply font-extrabold;
+  }
+  h2 {
+    @apply text-xl;
+  }
 }
 
-p {
+body {
+    background-color: black;
     color: white;
 }

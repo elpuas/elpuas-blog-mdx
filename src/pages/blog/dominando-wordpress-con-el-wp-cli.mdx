@@ -1,0 +1,231 @@
+---
+title: Dominando WordPress con el WP-CLI
+author: Alfredo Navas
+date: 2017-04-25
+---
+
+![wpcli](https://www.elpuas.com/wp-content/uploads/2017/04/wpcli-1.png)
+
+**WP-CLI (WordPress Command Line Interface)** es una interfaz de línea de comandos que permite a los usuarios gestionar sus sitios web de WordPress desde la terminal. Se pueden hacer actualizaciones, copias de seguridad, publicar post y la mayoría de las acciones de administración comunes con un conjunto de comandos.
+
+En este articulo vamos a explicar cómo utilizar **WP-CLI** con el fin de completar las tareas administrativas habituales como las actualizaciones, creación de copias de seguridad de bases de datos, plugins y las instalaciones y eliminación de temas además cómo obtener ayuda sobre los comandos seleccionados.
+
+### Instalemos WP-CLI
+
+La descarga del archivo **_Phar_** es nuestro método de instalación recomendado. .
+
+Antes de instalar WP-CLI, asegúrese de que su entorno cumple los requisitos mínimos:
+
+- Entorno similar a UNIX (OS X, Linux, FreeBSD, Cygwin); Soporte limitado en entorno Windows
+- PHP 5.3.29 o posterior
+- WordPress 3.7 o posterior
+
+Una vez que haya verificado los requisitos, descargue el archivo **wp-cli.phar** usando **wget** or **curl**:
+
+```
+$ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+```
+
+A continuación, compruebe si está funcionando:
+
+```
+$ php wp-cli.phar --info
+```
+
+Para usar WP-CLI desde la línea de comandos escribiendo wp, haga que el archivo sea ejecutable y muévalo a algún lugar de su PATH. Por ejemplo:
+
+```
+$ chmod +x wp-cli.phar
+$ sudo mv wp-cli.phar /usr/local/bin/wp
+```
+
+Si WP-CLI se instaló correctamente, debería ver algo como esto cuando ejecuta **wp --info**:
+
+```
+
+$ wp --info
+PHP binary:    /usr/bin/php5
+PHP version:    5.5.9-1ubuntu4.14
+php.ini used:   /etc/php5/cli/php.ini
+WP-CLI root dir:        /home/wp-cli/.wp-cli
+WP-CLI packages dir:    /home/wp-cli/.wp-cli/packages/
+WP-CLI global config:   /home/wp-cli/.wp-cli/config.yml
+WP-CLI project config:
+WP-CLI version: 1.1.0
+```
+
+### Lista de comandos disponibles en WP-CLI
+
+En primer lugar, vamos a empezar con las instrucciones sobre cómo hacer una lista de los comandos disponibles y obtener ayuda detallada para cada uno de ellos.
+
+Para una lista de todos los comandos escribe **wp help** o simplemente **wp**.
+
+Se mostrará la siguiente lista:
+
+```
+Available commands:wp core [download|config|install|install_network|version|update|update_db]
+wp db [create|drop|optimize|repair|connect|cli|query|export|import]
+wp eval-file
+wp eval
+wp export [validate_arguments]
+wp generate [posts|users]
+wp home
+wp option [add|update|delete|get]
+wp plugin [activate|deactivate|toggle|path|update|uninstall|delete|status|install]
+wp post-meta [get|delete|add|update]
+wp post [create|update|delete]
+wp theme [activate|path|delete|status|install|update]
+wp transient [get|set|delete|type]
+wp user-meta [get|delete|add|update]
+wp user [list|delete|create|update]
+```
+
+Consulte **wp help** para obtener más información sobre un comando específico.
+
+```
+Global parameters:
+--user=set the current user
+--url=set the current URL
+--path=set the current path to the WP install
+--require=load a certain file before running the command
+--versionprint WP-CLI version
+```
+
+Si quieres obtener documentación detallada, por ejemplo, para el comando **wp db export**
+
+```
+wp help db export
+WP-DB-EXPORT(1) WP-CLI WP-DB-EXPORT(1)
+NAME
+wp-db-export - Export the WordPress database using mysqldump.
+SYNOPSIS
+wp db export [file]
+OPTIONS
+file: The name of the export file. If omitted, it will be ´{dbname}.sql´
+```
+
+Ahora veamos algunas tareas comunes.
+
+### Actualizar WordPress a través de WP-CLI
+
+En primer lugar, vamos a mostrar cómo actualizar los archivos principales de tu web. Comprobaremos la versión actual que tenemos:
+
+```
+wp core version
+3.4.2
+```
+
+Obviamente no está actualizado. Para utilizar las últimas características de secuencias de comandos y tener todas las vulnerabilidades en las versiones anteriores parcheadas siempre debemos utilizar las últimas versiones estables para nuestras aplicaciones web. Usando WP-CLI vamos a completar la actualización con un solo comando:
+
+```
+wp core update
+Downloading update from http://wordpress.org/wordpress-3.5.1-new-bundled.zip...
+Unpacking the update...
+Success: WordPress updated successfully.
+```
+
+Ahora veamos como actualizar nuestros plugins.
+
+### Instalar y Actualizar Plugins de WordPress usando WP-CLI
+
+La actualización de los archivos principales y la base de datos no son siempre suficientes. Si hemos integrado plugins y/ o temas externos debemos cuidar de su actualización. Tenemos que comprobar el estado de las extensiones instaladas:
+
+```
+wp plugin status
+
+Installed plugins:
+UI akismet
+I hello
+UA jetpack
+A limit-login-attempts
+A SGCachePress
+
+Legend: I = Inactive, A = Active, M = Must Use, U = Update Available
+```
+
+Tenemos 5 plugins integrados en nuestra instalación muestra. Hay actualizaciones para dos de ellos. Vamos a completar las mejoras a través de los siguientes comandos:
+
+```
+wp plugin update jetpack
+
+Downloading update from http://downloads.wordpress.org/plugin/jetpack.2.3.zip...
+Unpacking the update...
+Installing the latest version...
+Removing the old version of the plugin...
+Plugin updated successfully.
+
+-----------------------------------------------------
+
+wp plugin update akismet
+
+Downloading update from http://downloads.wordpress.org/plugin/akismet.2.5.8.zip...
+Unpacking the update...
+Installing the latest version...
+Removing the old version of the plugin...
+Plugin updated successfully.
+```
+
+Para instalar y activar un nuevo plugin, ejecuta los comandos que aparecen a continuación:
+
+```
+wp plugin install Plugin_Name
+wp plugin activate Plugin_Name
+```
+
+Debes reemplazar la cadena "_plugin\_name_" con el nombre exacto del plugin.
+
+Si no necesitas un plugin puede eliminarlo mediante las siguientes acciones:
+
+```
+wp plugin uninstall Plugin_Name
+```
+
+Ahora veamos con los temas.
+
+### Instalar y Actualizar Temas de WordPress usando WP-CLI
+
+Ahora, vamos a comprobar los temas con el siguiente comando:
+
+```
+wp theme status
+Installed themes:
+UA twentyeleven
+UI twentyten
+I twentytwelve
+
+Legend: I = Inactive, A = Active, U = Update Available
+```
+
+Para actualizar todos los temas, ejecute el siguiente comando:
+
+```
+wp theme update --all
+
+Enabling Maintenance mode...
+Downloading update from http://wordpress.org/themes/download/twentyeleven.1.5.zip...
+Unpacking the update...
+Installing the latest version...
+Removing the old version of the theme...
+Theme updated successfully.
+Downloading update from http://wordpress.org/themes/download/twentyten.1.5.zip...
+Unpacking the update...
+Installing the latest version...
+Removing the old version of the theme...
+Theme updated successfully.
+Disabling Maintenance mode...
+Success: Updated 2/2 themes.
+```
+
+Los temas se pueden instalar, activar y desactivar de forma similar a los plugins:
+
+```
+wp theme install Theme_Name
+wp theme activate Theme_Name
+wp theme delete Theme_Name
+```
+
+"Theme\_Name" debe ser reemplazarse por el nombre real del tema.
+
+Si quieres conocer mas de WP-CLI puedes visitar la pagina del proyecto [wp-cli.org](https://wp-cli.org). WP-CLI tambien te permite crear tu propia lista de comandos aqui te explica como [Commands Cookbook](https://make.wordpress.org/cli/handbook/commands-cookbook/)
+
+Espero este articulo introductorio les ayude a dominar el WP-CLI
