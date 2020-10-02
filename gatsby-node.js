@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // This little algo takes the array of posts and groups
     // them based on this `size`:
-    let size = 10
+    let size = 9
     let start = 0
     // Premake the grouped array to the correct length. new Array
     // wasn't working with map so don't @ me :)

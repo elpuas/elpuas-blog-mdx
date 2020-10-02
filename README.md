@@ -9,7 +9,7 @@ README also applies here.
 1. Create a new Gatsby site using this starter
 
 ```sh
-gatsby new my-site https://github.com/ChristopherBiscardi/gatsby-starter-mdx-basic
+gatsby new my-site https://github.com/elpuas/gatsby-blog-mdx
 ```
 
 2. Install dependencies

@@ -3,25 +3,41 @@ import { Link } from 'gatsby'
 import Layout from './layout'
 import Hero from './hero'
 
+import tw, { styled } from 'twin.macro';
+
+const CardsContainer = styled.div`
+${tw`flex flex-wrap -m-4`}
+> div {
+  ${tw`flex p-4 md:w-1/3`}
+}
+`
+
+const CardHeader = styled.header`
+
+`
+
 function BrowseBlogPosts({ pageContext }) {
   const { groupedPosts, group, page } = pageContext
   return (
     <Layout>
       <Hero title="Blog" content="Some stuffs..." />
+      <CardsContainer>
       {group.map(({ node }) => {
         const { title, author } = node.frontmatter
         return (
           <div key={node.id}>
-            <header>
-              <div>{title}</div>
-              <div>Posting By {author}</div>
-            </header>
-            <p>{node.excerpt}</p>
-            <Link to={node.fields.slug}>View Article</Link>
-            <hr />
+            <div>
+              <CardHeader>
+                <h3>{title}</h3>
+                <p>Posting By: {author}</p>
+              </CardHeader>
+              <p>{node.excerpt}</p>
+              <Link to={node.fields.slug}>View Article</Link>
+            </div>
           </div>
         )
       })}
+      </CardsContainer>
       <footer>
         Pages:{' '}
         {groupedPosts.map((x, index) => {

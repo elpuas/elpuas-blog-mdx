@@ -1,3 +1,4 @@
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -26,7 +27,7 @@ const HeaderLogo = styled.div`
   }
 `;
 
-const MenuLinks = styled(Link)`
+const MenuLinks = styled(AniLink)`
   ${tw`block px-3 py-2 text-base font-medium text-white hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out`}
 `
 
@@ -42,22 +43,22 @@ const Header = ({ siteTitle }) => (
     <nav>
       <ul>
           <li>
-            <MenuLinks to="/">
+            <MenuLinks paintDrip to="/" duration={1}>
               Home
             </MenuLinks>
           </li>
           <li>
-            <MenuLinks to="/about">
+            <MenuLinks swipe direction="up" to="/about">
               About
             </MenuLinks>
           </li>
           <li>
-            <MenuLinks to="/portfolio">
+            <MenuLinks swipe top="exit" to="/portfolio">
               Portfolio
             </MenuLinks>
           </li>
           <li>
-            <MenuLinks to="/blog/1">
+            <MenuLinks paintDrip color="rebeccapurple" to="/blog/1">
               Blog
             </MenuLinks>
           </li>

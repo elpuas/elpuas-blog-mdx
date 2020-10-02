@@ -4,6 +4,9 @@
   h1 {
     @apply text-6xl;
     @apply font-extrabold;
+    background: linear-gradient(180deg,#00f260, #0575e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   h2 {
     @apply text-xl;
@@ -12,5 +15,8 @@
 
 body {
     background-color: black;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
 }
