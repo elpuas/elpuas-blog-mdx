@@ -6,7 +6,7 @@ import React from 'react'
 import tw, { styled } from 'twin.macro';
 
 const HeaderContainer = styled.div`
-  ${tw`flex justify-between`}
+  ${tw`flex justify-between pt-2 pb-2 pl-4 pr-4 `}
   > nav {
     ${tw`relative flex items-center justify-between sm:h-10 lg:justify-start`}
   }

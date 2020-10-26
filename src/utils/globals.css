@@ -4,19 +4,21 @@
   h1 {
     @apply text-6xl;
     @apply font-extrabold;
-    background: linear-gradient(180deg,#00f260, #0575e6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
   h2 {
-    @apply text-xl;
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+    @apply font-semibold;
   }
 }
 
 body {
-    background-color: black;
-    background-image: url(../images/background.jpg);
+    /* background-image: linear-gradient(160deg, rgb(51, 183, 255), transparent 100%), linear-gradient(87deg, rgb(112, 228, 112) 49%, transparent 90%), radial-gradient(circle at 157% 159%, rgb(217, 108, 214) 18%, rgb(196, 156, 222) 50%);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #000106;
     color: white;
 }

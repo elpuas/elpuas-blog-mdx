@@ -8,7 +8,7 @@ import tw, { styled } from 'twin.macro';
 const CardsContainer = styled.div`
 ${tw`flex flex-wrap -m-4`}
 > div {
-  ${tw`flex p-4 md:w-1/3`}
+  ${tw`flex p-4 md:w-1/2`}
 }
 `
 

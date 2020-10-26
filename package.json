@@ -28,6 +28,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-particles-js": "^3.4.0",
+    "react-typing-effect": "^2.0.4",
     "stylelint": "^13.7.2",
     "twin.macro": "^1.10.0"
   },
