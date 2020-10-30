@@ -7,10 +7,9 @@ import tw, { styled } from 'twin.macro';
 import '../utils/globals.css'
 
 const LayoutStyle = styled.div`
+${tw`max-w-screen-xl mx-auto`}
 background-color: #000106;
-height: 100vh;
-min-height: 100vh;
-`
+`;
 
 const Layout = ({ children }) => (
   <StaticQuery

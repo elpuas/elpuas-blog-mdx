@@ -2,11 +2,12 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Logo from '../images/skull-icon.svg'
 
 import tw, { styled } from 'twin.macro';
 
 const HeaderContainer = styled.div`
-  ${tw`flex justify-between pt-2 pb-2 pl-4 pr-4 `}
+  ${tw`flex justify-between pt-2 pb-2 pl-4 pr-4 max-w-screen-xl mx-auto`}
   > nav {
     ${tw`relative flex items-center justify-between sm:h-10 lg:justify-start`}
   }
@@ -24,6 +25,10 @@ const HeaderLogo = styled.div`
   ${tw`flex items-center`}
   a {
     ${tw`text-white`}
+
+    img {
+      width: 6.25rem;
+    }
   }
 `;
 
@@ -37,7 +42,7 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
         >
-          {siteTitle}
+          <img src={ Logo } alt={ siteTitle } />
         </Link>
     </HeaderLogo>
     <nav>

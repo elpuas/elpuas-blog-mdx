@@ -1,16 +1,29 @@
 import React from 'react'
 import Particles from 'react-particles-js';
-import ReactTypingEffect from 'react-typing-effect';
+// import ReactTypingEffect from 'react-typing-effect';
 import tw, { styled } from 'twin.macro';
 
-const IntroHero = styled.h1`
-    ${tw`mt-6`}
-    text-align: center;
-`;
-
 const ParticlesStyles = styled.div`
+    ${tw`grid max-w-4xl overflow-hidden`}
+    margin:auto;
+    .skull-background {
+        margin-top: -15.625rem;
+    }
 
+    p {
+        text-align: center;
+        color: #4285f4;
+    }
 `;
+
+const HeadingStyles = styled.h1`
+    ${tw`text-center font-black`}
+    font-size: clamp(6rem, 10vw, 10rem);
+    color: black;
+    background: linear-gradient(160deg, #4285f4 30%, #EA4335 90%);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 3px transparent;
+`
 
 const Skull = () => (
     <ParticlesStyles>
@@ -36,7 +49,7 @@ const Skull = () => (
                 "distance": 40,
                 "opacity": 0.4,
                 "color": {
-                    "value": ["#4285f4", "#34A853", "#FBBC05", "#EA4335"]
+                    "value": "#4285f4"
                 }
             },
             "move": {
@@ -86,10 +99,8 @@ const Skull = () => (
             }
         },
     }} />
-    <IntroHero>
-        <ReactTypingEffect text={['Welcome to my Personal Site.', 'I\'m Alfredo Navas better know as elPuas']} speed={200} eraseSpeed={100} />
-    </IntroHero>
-    <p>Web Artisan, Works with WordPress - React - Gatsby & is an Open Source Advocate.</p>
+    <HeadingStyles>ElPuas</HeadingStyles>
+        <p>Web Artisan, Works with WordPress - React - Gatsby & is an Open Source Advocate.</p>
     </ParticlesStyles>
 )
 

@@ -33,6 +33,17 @@ exports.createPages = ({ graphql, actions }) => {
             frontmatter {
               title
               author
+              thumbnail {
+                childImageSharp {
+                    id
+                    fluid(maxWidth: 800, maxHeight: 300) {
+                      base64
+                      src
+                      srcSet
+                      sizes
+                    }
+                }
+              }
             }
           }
         }
