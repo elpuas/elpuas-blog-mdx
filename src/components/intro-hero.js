@@ -1,6 +1,6 @@
 import React from 'react'
 import Particles from 'react-particles-js';
-// import ReactTypingEffect from 'react-typing-effect';
+import GlitchText from './glitch-text';
 import tw, { styled } from 'twin.macro';
 
 const ParticlesStyles = styled.div`
@@ -16,16 +16,7 @@ const ParticlesStyles = styled.div`
     }
 `;
 
-const HeadingStyles = styled.h1`
-    ${tw`text-center font-black`}
-    font-size: clamp(6rem, 10vw, 10rem);
-    color: black;
-    background: linear-gradient(160deg, #4285f4 30%, #EA4335 90%);
-    -webkit-background-clip: text;
-    -webkit-text-stroke: 3px transparent;
-`
-
-const Skull = () => (
+const IntroHero = () => (
     <ParticlesStyles>
         <Particles
         width={500}
@@ -99,9 +90,9 @@ const Skull = () => (
             }
         },
     }} />
-    <HeadingStyles>ElPuas</HeadingStyles>
+        <GlitchText text="ElPuas." dataText="ElPuas." />
         <p>Web Artisan, Works with WordPress - React - Gatsby & is an Open Source Advocate.</p>
     </ParticlesStyles>
 )
 
-export default Skull
+export default IntroHero

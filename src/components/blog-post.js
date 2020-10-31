@@ -11,6 +11,17 @@ function BlogPost ( ) {
     @media screen and ( max-width: 29.063rem ) {
         grid-auto-flow: row;
     }
+    p {
+        color:#4285f4;
+    }
+    h3 {
+        font-family: 'Inconsolata', monospace;
+        color: #BAFF29;
+    }
+
+    .gatsby-image-wrapper {
+        height: 12.5rem !important;
+    }
     `
 
     // Query

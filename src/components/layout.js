@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
+import Footer from './footer'
 import tw, { styled } from 'twin.macro';
 import '../utils/globals.css'
 
@@ -28,6 +29,7 @@ const Layout = ({ children }) => (
         <LayoutStyle>
           {children}
         </LayoutStyle>
+        <Footer />
       </>
     )}
   />

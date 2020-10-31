@@ -16,6 +16,15 @@ module.exports = {
           posts: require.resolve("./src/components/blog-post-layout.js"),
           default: require.resolve("./src/components/blog-post-layout.js"),
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'blackboard'
+            },
+          },
+        ],
       },
     },
     'gatsby-plugin-react-helmet',
@@ -63,14 +72,20 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-load-script',
       options: {
-        fonts: [
-          `Bangers`,
-        ],
-        display: 'swap'
+        src: 'https://cdn.rawgit.com/progers/pathseg/master/pathseg.js',
       }
     },
+    {
+    resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Inconsolata\:600`,
+        ],
+        display: 'swap'
+      },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
