@@ -32,7 +32,7 @@ const Image = ( { fileName, alt, style  } ) => {
 
   return (
     <figure>
-      <Img fluid={fluid} alt={alt} style={style} />
+      { fluid.originalName === fileName ? <Img fluid={fluid} alt={alt} style={style} /> : null }
     </figure>
   )
 }
