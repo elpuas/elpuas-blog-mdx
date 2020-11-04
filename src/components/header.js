@@ -17,6 +17,9 @@ const HeaderContainer = styled.div`
 
     li {
       ${tw`mr-6`}
+      a {
+
+      }
     }
   }
 `;
@@ -24,8 +27,6 @@ const HeaderContainer = styled.div`
 const HeaderLogo = styled.div`
   ${tw`flex items-center`}
   a {
-    ${tw`text-white`}
-
     img {
       width: 6.25rem;
     }
@@ -33,7 +34,8 @@ const HeaderLogo = styled.div`
 `;
 
 const MenuLinks = styled(AniLink)`
-  ${tw`block px-3 py-2 text-base font-medium text-white hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out`}
+  ${tw`block px-3 py-2 text-base font-medium focus:outline-none transition duration-150 ease-in-out`}
+  color: var(--color-limegreen);
 `
 
 const Header = ({ siteTitle }) => (
@@ -48,22 +50,22 @@ const Header = ({ siteTitle }) => (
     <nav>
       <ul>
           <li>
-            <MenuLinks paintDrip to="/" duration={1}>
+            <MenuLinks paintDrip color="#000106" to="/" duration={0.5}>
               Home
             </MenuLinks>
           </li>
           <li>
-            <MenuLinks swipe direction="up" to="/about">
+            <MenuLinks paintDrip color="#000106" duration={0.5} to="/about" >
               About
             </MenuLinks>
           </li>
           <li>
-            <MenuLinks swipe top="exit" to="/portfolio">
-              Portfolio
+            <MenuLinks paintDrip color="#000106" duration={0.5} to="/what-i-do">
+              What I Do
             </MenuLinks>
           </li>
           <li>
-            <MenuLinks paintDrip color="rebeccapurple" to="/blog/1">
+            <MenuLinks paintDrip color="#000106" duration={0.5} to="/blog/1">
               Blog
             </MenuLinks>
           </li>

@@ -7,7 +7,7 @@ import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/
 const BlogPostLayout = ({ children, pageContext }) => {
   deckDeckGoHighlightElement();
   const { title, author, date } = pageContext.frontmatter
-  console.log( pageContext.frontmatter );
+
   return (
     <Layout>
       <Helmet>

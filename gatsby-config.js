@@ -81,7 +81,7 @@ module.exports = {
     resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Inconsolata\:600`,
+          `Heebo\:700, 800, 900`,
         ],
         display: 'swap'
       },

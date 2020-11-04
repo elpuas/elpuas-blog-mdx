@@ -1,6 +1,5 @@
 import React from 'react'
 import Particles from 'react-particles-js';
-import GlitchText from './glitch-text';
 import tw, { styled } from 'twin.macro';
 
 const ParticlesStyles = styled.div`
@@ -10,9 +9,15 @@ const ParticlesStyles = styled.div`
         margin-top: -15.625rem;
     }
 
+    h1 {
+        ${tw`text-center font-extrabold`}
+    }
+
     p {
         text-align: center;
-        color: #4285f4;
+        color: var(--color-blue);
+        max-width: 28.438rem;
+        ${tw`m-auto`}
     }
 `;
 
@@ -90,7 +95,7 @@ const IntroHero = () => (
             }
         },
     }} />
-        <GlitchText text="ElPuas." dataText="ElPuas." />
+        <h1>El.Puas</h1>
         <p>Web Artisan, Works with WordPress - React - Gatsby & is an Open Source Advocate.</p>
     </ParticlesStyles>
 )

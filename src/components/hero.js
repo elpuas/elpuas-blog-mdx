@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import tw, { styled } from 'twin.macro';
+import GlitchText from './glitch-text';
 
 const HeroContainer = styled.div`
   ${tw`container lg:mx-auto mb-16`}
@@ -13,21 +13,11 @@ const HeroContainer = styled.div`
     ${tw`text-white text-center text-base`}
   }
 `;
-const Hero = ( { title, content } ) => (
+const Hero = ( { text, dataText, content  } ) => (
     <HeroContainer>
-        <h1>{title}</h1>
+        <GlitchText text={text} data-text={dataText} />
         <p>{content}</p>
     </HeroContainer>
 )
-
-  Hero.propTypes = {
-    title: PropTypes.string,
-    content: PropTypes.string
-  }
-
-  Hero.defaultProps = {
-    title: 'Hero Title',
-    content: 'Hero Content'
-  }
 
 export default Hero

@@ -36,7 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
               thumbnail {
                 childImageSharp {
                     id
-                    fluid(maxWidth: 800, maxHeight: 300) {
+                    fluid(fit: COVER, maxWidth: 287, maxHeight: 446) {
                       base64
                       src
                       srcSet

@@ -8,7 +8,7 @@ import tw, { styled } from 'twin.macro';
 import '../utils/globals.css'
 
 const LayoutStyle = styled.div`
-${tw`max-w-screen-xl mx-auto`}
+${tw`max-w-screen-xl mx-auto pl-5 pr-5`}
 background-color: #000106;
 `;
 
@@ -28,8 +28,8 @@ const Layout = ({ children }) => (
         <Header siteTitle={data.site.siteMetadata.title} />
         <LayoutStyle>
           {children}
+          <Footer />
         </LayoutStyle>
-        <Footer />
       </>
     )}
   />
