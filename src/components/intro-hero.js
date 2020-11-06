@@ -4,7 +4,15 @@ import tw, { styled } from 'twin.macro';
 
 const ParticlesStyles = styled.div`
     ${tw`grid max-w-4xl overflow-hidden`}
+
     margin:auto;
+
+    @media ( max-width: 26.563rem ) {
+        .skull-background {
+            margin-left: -12.5rem;
+        }
+    }
+
     .skull-background {
         margin-top: -15.625rem;
     }

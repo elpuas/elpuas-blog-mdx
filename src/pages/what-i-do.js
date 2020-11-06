@@ -8,7 +8,8 @@ import BlogPost from "../components/blog-post";
 const WhatIDoStyles = styled.div`
     ${ tw`grid grid-cols-2 grid-rows-6 gap-16 mt-20`}
 
-    @media screen and ( max-width: 900px ) {
+    @media screen and ( max-width: 29.063rem ) {
+        ${tw`grid-cols-1 mt-12`}
     }
 
     div {
@@ -18,6 +19,9 @@ const WhatIDoStyles = styled.div`
     figure {
         position: relative;
         max-width: 32.313rem;
+        @media ( max-width: 29.063rem ) {
+            ${tw`pl-6 pr-6`}
+        }
 
     .gatsby-image-wrapper {
         z-index: 40;
@@ -33,6 +37,11 @@ const WhatIDoStyles = styled.div`
         z-index: 1;
         position: absolute;
         animation: blogpost-before .2s cubic-bezier(0.4, 0, 0.6, 1);
+        @media ( max-width: 29.063rem ) {
+        width: 86%;
+        top: -1.25rem;
+        right: 0.313rem;
+        }
     }
 
     &::after {
@@ -45,14 +54,23 @@ const WhatIDoStyles = styled.div`
         z-index: 1;
         position: absolute;
         animation: blogpost-after .2s cubic-bezier(0.4, 0, 0.6, 1);
+        @media ( max-width: 29.063rem ) {
+            width: 86%;
+            bottom: -1.438rem;
+            left: 0.188rem;
+        }
     }
 }
+`
+
+const H2 = styled.h2`
+    ${tw`mt-12`}
 `
 
 const WhatIDo = () => (
     <Layout>
         <SEO title="What I Do" meta="I always been attractive to all forms of expression, and all my life has turn into that, this is a selection of my works from my early stages to more recent time." />
-        <h2>I always been attractive to all forms of expression, and all my life has turn into that, this is a selection of my works from my early stages to more recent time.</h2>
+        <H2>I always been attractive to all forms of expression, and all my life has turn into that, this is a selection of my works from my early stages to more recent time.</H2>
         <WhatIDoStyles>
             <div>
                 <h3>Let’s called the beginning…</h3>

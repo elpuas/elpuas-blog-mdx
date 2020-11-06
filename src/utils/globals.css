@@ -12,6 +12,12 @@
 
 @layer base {
 
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
   h1 {
     font-family: 'Heebo', sans-serif;
     color: var(--color-limegreen);

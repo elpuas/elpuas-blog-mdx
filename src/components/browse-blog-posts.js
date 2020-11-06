@@ -7,7 +7,7 @@ import ArrowForward from '../images/arrow_forward_24px.svg'
 
 const CardsContainer = styled.div`
 ${ tw`grid grid-cols-3 grid-rows-3 gap-16 mt-20`}
-    @media ( max-width: 900px ) {
+    @media ( max-width: 29.063rem ) {
       ${tw`grid-cols-1`}
     }
     .post-content {
@@ -68,7 +68,10 @@ ${ tw`grid grid-cols-3 grid-rows-3 gap-16 mt-20`}
 
 const Pagination = styled.footer`
   ${tw`flex flex-col items-end mt-5`}
-  width: 100%auto;
+  width: 100%;
+  @media ( max-width: 29.063rem ) {
+      ${tw`items-center mt-12`}
+    }
   a {
     ${tw`mr-5`}
     color: var(--color-blue);
@@ -82,14 +85,18 @@ const Pagination = styled.footer`
   }
 `
 
+const H2 = styled.h2`
+    ${tw`mt-12`}
+`
+
 function BrowseBlogPosts({ pageContext }) {
   const { groupedPosts, group, page } = pageContext
   return (
     <Layout>
-      <h2>All children, except one, grow up...</h2>
+      <H2>All children, except one, grow up...</H2>
       <CardsContainer>
       {group.map(({ node }) => {
-        const { title, author, thumbnail } = node.frontmatter
+        const { title, thumbnail } = node.frontmatter
         return (
           <div key={node.id}>
             <BoxHover>

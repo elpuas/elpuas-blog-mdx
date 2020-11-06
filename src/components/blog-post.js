@@ -8,11 +8,15 @@ import ArrowForward from '../images/arrow_forward_24px.svg'
 function BlogPost ( ) {
     // Styles
     const BlogPostStyles = styled.div`
-    ${ tw`grid-cols-3 grid grid-flow-col sm:grid-flow-row md:grid-flow-col-dense lg:grid-flow-row-dense xl:grid-flow-col gap-16 m-auto`}
+    ${ tw`grid-cols-3 grid gap-16 m-auto`}
     margin-top: 10.813rem;
     max-width: 62.063rem;
-    @media screen and ( max-width: 29.063rem ) {
-        grid-auto-flow: row;
+    @media ( max-width: 56.25rem ) {
+        ${tw`grid-cols-1`}
+
+        > div:nth-of-type(n+2) {
+            display: none;
+        }
     }
 
     .post-content {
