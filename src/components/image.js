@@ -18,7 +18,7 @@ const Image = ( { fileName, alt, style  } ) => {
     query {
       allImageSharp {
         nodes {
-          fluid(fit: COVER, maxWidth: 1024, maxHeight: 800) {
+          fluid(fit: COVER, maxWidth: 1024) {
             originalName
             ...GatsbyImageSharpFluid
           }

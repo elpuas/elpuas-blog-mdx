@@ -31,7 +31,7 @@ function BlogPost ( ) {
 
         p {
             ${tw`mb-5`}
-            color:#4285f4;
+            color:var(--color-blue);
         }
 
         h3 {
@@ -114,7 +114,7 @@ function BlogPost ( ) {
                     <BoxHover
                         key={id}
                     >
-                        { thumbnail ? <Img fluid={thumbnail.childImageSharp.fluid} alt={`post-image-${slug}`} className="post-image" /> : null }
+                        { thumbnail ? <Img fluid={thumbnail.childImageSharp.fluid} alt={`post-${slug}`} className="post-image" /> : null }
                         <div className="post-content">
                             <h3>
                                 <Link
@@ -127,7 +127,7 @@ function BlogPost ( ) {
                             <Link
                                 to={`/${slug}`}
                                 >
-                                <img src={ArrowForward} atl={`post-${slug}`} width="24" />
+                                <img src={ArrowForward} alt={`post-${slug}`} width="24" />
                             </Link>
                         </div>
                     </BoxHover>

@@ -7,7 +7,7 @@ import ArrowForward from '../images/arrow_forward_24px.svg'
 
 const CardsContainer = styled.div`
 ${ tw`grid grid-cols-3 grid-rows-3 gap-16 mt-20`}
-    @media ( max-width: 29.063rem ) {
+    @media ( max-width: 56.25rem ) {
       ${tw`grid-cols-1`}
     }
     .post-content {
@@ -22,7 +22,7 @@ ${ tw`grid grid-cols-3 grid-rows-3 gap-16 mt-20`}
 
         p {
             ${tw`mb-5`}
-            color:#4285f4;
+            color:var(--color-blue);
         }
 
         h3 {
@@ -69,7 +69,7 @@ ${ tw`grid grid-cols-3 grid-rows-3 gap-16 mt-20`}
 const Pagination = styled.footer`
   ${tw`flex flex-col items-end mt-5`}
   width: 100%;
-  @media ( max-width: 29.063rem ) {
+  @media ( max-width: 56.25rem ) {
       ${tw`items-center mt-12`}
     }
   a {
@@ -101,7 +101,7 @@ function BrowseBlogPosts({ pageContext }) {
           <div key={node.id}>
             <BoxHover>
                 <figure className="post-image">
-                  {thumbnail ? <img src={thumbnail.childImageSharp.fluid.src} width="100%" data-src={thumbnail.childImageSharp.fluid.src} data-srcset={thumbnail.childImageSharp.fluid.srcSet} data-sizes={thumbnail.childImageSharp.fluid.sizes} className="lazyload" alt={title}/> : null }
+                  {thumbnail ? <img src={thumbnail.childImageSharp.fluid.src} width="100%" data-src={thumbnail.childImageSharp.fluid.src} data-srcset={thumbnail.childImageSharp.fluid.srcSet} data-sizes={thumbnail.childImageSharp.fluid.sizes} className="lazyload" alt={`post-${title}`}/> : null }
                 </figure>
                 <div className="post-content">
                 <Link
@@ -114,7 +114,7 @@ function BrowseBlogPosts({ pageContext }) {
                 <Link
                     to={node.fields.slug}
                     >
-                    <img src={ArrowForward} atl={`post-${node.fields.slug}`} width="24" />
+                    <img src={ArrowForward} alt={`post-${node.fields.slug}`} width="24" />
                 </Link>
               </div>
             </BoxHover>

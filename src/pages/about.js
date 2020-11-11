@@ -8,20 +8,20 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const AboutStyles = styled.div`
 ${ tw`grid-cols-3 grid gap-16 m-auto`}
-@media ( max-width: 29.063rem ) {
+@media (max-width: 56.25rem) {
   ${ tw`grid-cols-1 mt-12`}
 }
 
 div:last-of-type {
   ${tw`col-span-2`}
-    @media ( max-width: 29.063rem ) {
+    @media (max-width: 56.25rem) {
       ${tw`col-span-1`}
     }
 }
 
 figure {
   position: relative;
-  @media ( max-width: 29.063rem ) {
+  @media (max-width: 56.25rem) {
       ${tw`mt-12 pl-6 pr-6`}
   }
 
@@ -39,7 +39,7 @@ figure {
     z-index: 1;
     position: absolute;
     animation: blogpost-before .2s cubic-bezier(0.4, 0, 0.6, 1);
-    @media ( max-width: 29.063rem ) {
+    @media ( max-width: 56.25rem ) {
         width: 86%;
         top: -1.25rem;
         right: 0.313rem;
@@ -56,7 +56,7 @@ figure {
       z-index: 1;
       position: absolute;
       animation: blogpost-after .2s cubic-bezier(0.4, 0, 0.6, 1);
-      @media ( max-width: 29.063rem ) {
+      @media ( max-width: 56.25rem ) {
         width: 86%;
         bottom: -1.438rem;
         left: 0.188rem;
@@ -70,7 +70,7 @@ const About = () => (
     <SEO title="About" />
     <AboutStyles>
       <div>
-        <Image fileName="placeholder.jpg" style={{ width: '100%', height: '450px' }} alt="about placeholder" />
+        <Image fileName="family-2.png" style={{ width: '100%', height: '450px' }} alt="about placeholder" />
       </div>
       <div>
         <h2>Hi, my name is Alfredo Navas, better known as <strong> el.puas </strong> and I am a Web Artisan based in the beautiful Costa Rica.</h2>

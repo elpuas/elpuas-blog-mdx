@@ -5,7 +5,7 @@ date: 2016-11-03
 thumbnail: ../../images/placeholder.jpg
 ---
 
-![Tutoriales Wordpress El Puas](https://www.elpuas.com/wp-content/uploads/2016/11/tutoriales-icon-1-300x300.png)Cuando desarrollamos temas o personalizamos un tema, y queremos agregarle nuestros estilos y scripts, aquí te voy a mostrar cómo seguir una buena práctica para añadir  tus scripts en WordPress adecuadamente.
+Cuando desarrollamos temas o personalizamos un tema, y queremos agregarle nuestros estilos y scripts, aquí te voy a mostrar cómo seguir una buena práctica para añadir  tus scripts en WordPress adecuadamente.
 
 WordPress tiene una gran comunidad de desarrolladores, hay una multitud de personas que se dedican al diseño de temas y desarrollo de plugins. Para asegurar el correcto funcionamiento, WordPress tiene una función de secuencia de comandos en cola. Esto ofrece una forma sistemática de carga de archivos JS y CSS.
 
@@ -27,7 +27,7 @@ Pero bien, veamos antes que nada los parámetros de la función **_wp\_enqueue\_
 - **$handle** – Nombre único de tu Script.
 - **$src** – La ubicación del script. Sólo es requerido si el script con el nombre _**$handle**_ no ha sido registrado previamente con **_wp\_register\_script()_**. Se usa la función _**plugins\_url()**_ para obtener la URL correcta de la carpeta de plugins. Y la función _**get\_template\_directory\_uri()**_ para la ubicación en el tema.
 - **$deps** – Son las dependencias. Si tu script usa _**jQuery**_, añade _**jQuery**_ en el área de la dependencia. WordPress cargará automáticamente jQuery si no se está cargando ya en el sitio.
-- **$ver** – Este es el número de versión de nuestro script. No es necesario este parámetro.
+- **$ver** – Este es el número de versión de nuestro script. No es requerido este parámetro.
 - **$in\_footer** – Para cargar el script en el footer se establece el valor en **_true_** y para cargarlo normalmente en el head dejarlo en _**false**_.
 
 Algunos Ejemplos de como agregar tus JS y CSS

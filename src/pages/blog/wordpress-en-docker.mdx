@@ -2,16 +2,14 @@
 title: WordPress en Docker
 author: Alfredo Navas
 date: 2018-12-19
-thumbnail: ../../images/placeholder.jpg
+thumbnail: ../../images/docker.png
 ---
-
-![WordPress Docker](https://www.elpuas.com/wp-content/uploads/2018/12/FI-1-1024x480.jpg)
 
 Las herramientas para desarrollar sitios de WordPress localmente ha cambiado con los años. Primero,  WAMP,  XAMP,  Bitnami, hasta que hice un presupuesto para una Mac y encontré MAMP, mas adelante con  LOCALbyFlywheel y ¡Entonces vino Vagrant!
 
 Cuando llegó Docker, rápidamente lo agarré por las riendas y probé la mierda en todo tipo de casos, me parecio rapido, facil de usar y sobretodo liviano.
 
-## ¿Qué es Docker?
+### ¿Qué es Docker?
 
 Docker es un tipo de virtualización que es más rápida y ligera que otras máquinas virtuales gracias a un acercamiento diferente hacia la infraestructura. Si lo comparamos con una máquina virtual estándar que puede tardar unos minutos en comenzar, Docker se puede iniciar en solo unos segundos. Además, puede ejecutar fácilmente docenas de contenedores en una sola PC, que de lo contrario no podrían lanzar más de 5 máquinas virtuales.
 
@@ -25,9 +23,7 @@ Docker, es casi nativo para cada plataforma y muchos de los problemas han sido r
 
 Vamos a entrar en detalles ... pero primero, asegúrate de tener [Docker instalado](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 
-![Docker](https://i1.wp.com/www.elpuas.com/wp-content/uploads/2018/12/IMG2.jpg)
-
-## Configurar docker-compose
+### Configurar docker-compose
 
 Antes de continuar, necesito decir algo. Puedes copiar y pegar estos snippets todo el día y te funcionaran tal como estan. Puedes usarlos de prueba y error para hacer que algo funcione, pero hasta que realmente leas la documentación en [docker](https://docs.docker.com/engine/reference/commandline/) o en [docker-compose](https://docs.docker.com/compose/overview/), probablemente no podrás personalizar y hackear tu propio proceso. Dicho esto, aquí vamos.
 
@@ -46,33 +42,33 @@ Agrega el snippet a ```docker-compose.yml```
 version: '3.3'
 
 services:
-   db:
-     image: mysql:5.7
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+  db:
+    image: mysql:5.7
+  volumes:
+    - db_data:/var/lib/mysql
+  restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
 
-   wordpress:
-     depends_on:
-       - db
-     image: wordpress:latest
-     ports:
-       - "8000:80"
-     restart: always
-     environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
+  wordpress:
+    depends_on:
+      - db
+      image: wordpress:latest
+      ports:
+      - "8000:80"
+      restart: always
+      environment:
+        WORDPRESS_DB_HOST: db:3306
+        WORDPRESS_DB_USER: wordpress
+        WORDPRESS_DB_PASSWORD: wordpress
 volumes:
     db_data: {}
 ```
 
-## Corramos Docker
+### Corramos Docker
 
 Ahora, ejecuta ```docker-compose up -d``` desde el directorio de tu proyecto.
 
@@ -82,19 +78,17 @@ Abre tu browser y navega a ```http://localhost:8000``` ya tienes una copia limpi
 
 Para saber mas  sobre todo lo que puedes hacer con Docker visita la [página oficial.](https://docs.docker.com/compose/)
 
-## Qué más podemos hacer con Docker?
-
-![Docker](https://i0.wp.com/www.elpuas.com/wp-content/uploads/2018/12/IMG3.jpg)
+### Qué más podemos hacer con Docker?
 
 Cuando desarrolló temas,  tengo mi directorio wp-content, en mi copia local, ( acorde al ejemplo en ```wordpress-site``` ) asi tengo mis plugins y temas localmente para trabajar. Para lograr esto nada mas agrega ```docker-compose.yml```
 
 ```
 wordpress:
-     depends_on:
-       - db
-     image: wordpress:latest
+    depends_on:
+    - db
+    image: wordpress:latest
 volumes:
- -"./wp-content:/var/www/html/wp-content"
+  -"./wp-content:/var/www/html/wp-content"
 ```
 
 Le indicamos a Docker que el directorio ```wp-content``` es el que que esta local, haz la prueba!
@@ -120,4 +114,4 @@ Para enfatizar, ```mycontainer``` es una ID de contenedor, no una ID de imagen.
 
 Ahora puedes continuar y realizar cambios en tus contenedores, en tus temas  y plugins, copiar archivos y demás, instalando plugins y cambiando temas, y todo eso desde un archivo ```docker-compose``` .
 
-Si te gusto este post o crees que puede ayudar a alguien como tu, por favor compartelo! [escribeme](https://www.elpuas.com/contact/) y hazme saber tus comentarios.
+Si te gusto este post o crees que puede ayudar a alguien como tu, por favor compartelo! [escribeme](mailto:elpuas@gmail.com) y hazme saber tus comentarios.

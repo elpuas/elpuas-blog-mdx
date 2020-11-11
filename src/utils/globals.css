@@ -5,8 +5,8 @@
 /* color vars */
 :root {
   --color-limegreen: #baff29;
-  --color-blue:      #3471d7;
-  --color-dark-blue: #000106;
+  --color-blue:      #B2E4DB;
+  --color-dark-blue: #000729;
   --color-white:     #ffffff;
 }
 
@@ -51,6 +51,10 @@
   }
 
   p a {
+    color: var(--color-limegreen);
+  }
+
+  code, strong {
     color: var(--color-limegreen);
   }
 }

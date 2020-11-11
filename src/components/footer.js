@@ -37,17 +37,17 @@ export default function Footer() {
             <a href="https://www.gatsbyjs.org">Gatsby</a> by El.Puas</Copyright>
             <Icons>
                 <li>
-                    <a href="https://twitter.com/3LPU4S">
+                    <a href="https://github.com/elpuas" target="_blank" rel="noreferrer">
                         <img src={Github} alt="github icon"/>
                     </a>
                 </li>
                 <li>
-                    <a href="https://profiles.wordpress.org/elpuas/">
+                    <a href="https://profiles.wordpress.org/elpuas/" target="_blank" rel="noreferrer">
                         <img src={WP} alt="wordpress icon"/>
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/3LPU4S">
+                    <a href="https://twitter.com/3LPU4S" target="_blank" rel="noreferrer">
                         <img src={Twitter} alt="twitter icon" />
                     </a>
                 </li>
