@@ -16,7 +16,7 @@ const BlogPostLayout = ({ children, pageContext }) => {
       </Helmet>
       <Seo
         title={title}
-        description={children[1].props.children.slice(0, 100).concat('...')}
+        description={children[1].props.children.slice(0, 50).concat('...')}
       />
       <article>
         <header>
