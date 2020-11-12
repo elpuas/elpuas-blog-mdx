@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Layout from './layout'
 import tw, { styled } from 'twin.macro';
 import BoxHover from './hover-box';
@@ -104,18 +104,22 @@ function BrowseBlogPosts({ pageContext }) {
                   {thumbnail ? <img src={thumbnail.childImageSharp.fluid.src} width="100%" data-src={thumbnail.childImageSharp.fluid.src} data-srcset={thumbnail.childImageSharp.fluid.srcSet} data-sizes={thumbnail.childImageSharp.fluid.sizes} className="lazyload" alt={`post-${title}`}/> : null }
                 </figure>
                 <div className="post-content">
-                <Link
+                <AniLink
                     to={node.fields.slug}
                     className="post-title"
+                    paintDrip color="#000106"
+                    duration={0.5}
                     >
                     <h3>{title}</h3>
-                </Link>
+                </AniLink>
                 <p>{node.excerpt}</p>
-                <Link
+                <AniLink
                     to={node.fields.slug}
+                    paintDrip color="#000106"
+                    duration={0.5}
                     >
                     <img src={ArrowForward} alt={`post-${node.fields.slug}`} width="24" />
-                </Link>
+                </AniLink>
               </div>
             </BoxHover>
           </div>
@@ -127,13 +131,15 @@ function BrowseBlogPosts({ pageContext }) {
           {groupedPosts.map((x, index) => {
             const currentPage = index + 1
             return (
-              <Link
+              <AniLink
                 key={index}
                 to={`/blog/${currentPage}`}
                 className={currentPage === page ? 'active' : null}
+                paintDrip color="#000106"
+                duration={0.5}
               >
                 {index + 1}
-              </Link>
+              </AniLink>
             )
           })}
         </div>

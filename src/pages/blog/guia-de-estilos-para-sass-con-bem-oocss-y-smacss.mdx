@@ -2,10 +2,8 @@
 title: Guia de estilos para SASS con BEM, OOCSS y SMACSS
 author: Alfredo Navas
 date: 2017-05-15
-thumbnail: ../../images/placeholder.jpg
+thumbnail: ../../images/plugins.png
 ---
-
-![wpcli](https://makzan.net/images/introducing-web-design/preprocessing.png)
 
 Todo buen desarrollador Front end deberia de hacer buen uso de las guías de estilo. Cuando nuestros proyectos se vuelven más complejos, son más grandes, mantener el código se vuelven más difícil. Sobre todo si se trabaja en equipo.
 
@@ -27,7 +25,7 @@ Posibles casos, que se pueden declarar en un guía de estilo:
 - Categorización de las reglas CSS
 - Generalmente CSS Stuff
 
-## Estructura de los Directorios
+### Estructura de los Directorios
 
 Tener una buena estructura para su proceso de desarrollo es tan importante y lo básico de todo. Usted debe prestar atención que la base es casi igual en cada proyecto - esto le ayudará a usted y a sus compañeros de equipo a incorporarla mas fácil en proyectos nuevos. Te mostraré mi estructura personal (basada en SMACSS):
 
@@ -65,7 +63,7 @@ En Corto:
 4. Cortar estados y módulos en diferentes secciones
 5. Un solo archivo para importar todos los parciales como **application.scss**
 
-### Estructura de un módulo
+#### Estructura de un módulo
 
 ¿Una estructura para el módulo? Un módulo puede tener muchos tipos diferentes o convertirse en algo muy complejo
 
@@ -84,13 +82,13 @@ $button-fontcolor: $white;
 @import "../_states/_s-buttons";
 ```
 
-### El módulo tiene tres secciones diferentes
+#### El módulo tiene tres secciones diferentes
 
 1. Al principio tenemos un área para **Config.** Allí defino colores específicos u otras cosas de la configuración como los colores.
 2. Ahora la parte principal del archivo, **Base.** Escribo todos los estilos aquí para todos los tipos del módulo.
 3. El pie de página llama **States.** Aquí importo los estados para el módulo actual. No más.
 
-## Importar archivos
+### Importar archivos
 
 En un proyecto hay tantos parciales. No me gusta incluir archivos en otros archivos. Yo prefiero tener un solo archivo como **application.scss** y allí incluyo todos los demás. Para ello he creado una estructura como en este ejemplo:
 
@@ -98,14 +96,14 @@ En un proyecto hay tantos parciales. No me gusta incluir archivos en otros archi
 
 // Base
 @import "_base/_config",
-        "_base/_presets",
-        "_base/_headings";
+@import "_base/_presets",
+@import "_base/_headings";
 // Layouts
 @import "_layouts/_l-default";
 
 // Modules
 @import "_modules/_m-buttons",
-        "_modules/_m-tabs";
+@import "_modules/_m-tabs";
 ```
 
 ### En corto:
@@ -160,7 +158,7 @@ $button-bgcolor: $blue;
 $button-fontcolor: $white;
 ```
 
-## Manejo de Breakpoints: Element Queries
+### Manejo de Breakpoints: Element Queries
 
 Element Queries con Sass son mucho mejores que las Media Queries. si tiene todos sus estilos específicos de queries en un archivo propio eso no esta bien, creo. Si usted escribe módulos, entonces usted debe declarar el comportamiento responsive allí. No en otro archivo.
 
@@ -231,17 +229,17 @@ Si escribo CSS / SCSS trato de ser coherente y establezco reglas para todo tipo 
 3. Textos color, font-size, text-transform, etc.
 4. Otras cosas animations, transforms, etc.
 
-## Reglas en el CSS
+### Reglas en el CSS
 
-### Evite los ID
+#### Evite los ID
 
 Los **IDs** son muy difíciles. Son muy específicos y mas que todo necesarios para JS. La mejor manera es usar las clases.
 
-## Evite los **!important**
+### Evite los **!important**
 
 Si usted necesita esto, que va hay algo malo en su arquitectura CSS, porque lo necesitara sólo si desea sobrescribir estilos. Si su estructura es limpia, usted no los necesitará. Es como tratar de matar moscas con un cañón.
 
-### Evite el selector hijo
+#### Evite el selector hijo
 
 En mis inicios lo usé a menudo, pero cada vez más aprendí que hace al módulo muy específico. Depende mucho de la estructura de su html, pero ¿qué pasa si se cambia el orden? pues utilice las clases!
 
@@ -262,7 +260,7 @@ En mis inicios lo usé a menudo, pero cada vez más aprendí que hace al módul
 
 CSS Wizardy hizo un [articulo](https://csswizardry.com/2012/10/a-classless-class-on-using-more-classes-in-your-html/) sobre esto. Le recomiendo seguir el enfoque de él y utilizar más las clases.
 
-## Otras Recomendaciones
+### Otras Recomendaciones
 
 1. En general, dos espacios en blanco en lugar de pestañas para la sangría
 2. Un espacio en blanco entre elementos y tirantes
