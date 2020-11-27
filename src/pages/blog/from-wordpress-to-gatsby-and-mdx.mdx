@@ -5,27 +5,71 @@ date: 2020-10-02
 thumbnail: ../../images/gatsby-site.jpg
 ---
 
-## WordPress
+### WordPress
 
-I'm a developer that specialize in WordPress and have been working with it for the last 10 - 12 years, I strongly believe that WordPress is a great tool for creating digital experiences, so why I change to Gatsby/MDX? the main reason expensive hosting, I have an excelent service for years at Siteground, but when the bill hits to more than $1000 a year, it hits hard. so i took the desition to stop paying expensive Hosting and move to free solution, yes a free solution with Netlify.
+I'm a developer that specialize in WordPress and have been working with it for the last 10 - 12 years, I strongly believe that WordPress is a great tool for creating digital experiences, so why I change to Gatsby/MDX? the main reason expensive hosting, I have an excelent service for years at Siteground, I was so exited to try all this new JAMStack in full so i took the desition to use Netlify to host my new website.
 
 The flaw, WordPress needs a Database, Apache, PHP and this is not available on Netlify, so now what should be next step?
 
-## Gatsby
+### Gatsby
 
 I like Gatsby a lot and it was my first Real World experience with React, I been using it since 2018, so why Gtasby and not other frameworks like NextJS who's populary skyrocket lately, or simple a CRA? because Gatsby I really easy to use, offer a wide range of plugins and overall you dont't need to ba JavaScript wizard, to get up and running in not time.
 
-## Markdown and MDX
+### Markdown and MDX
 
 I only write markdown on my PR's or in Trello, and more lately on Jira, it's nice easy, fast and I like it, Adding MDX allow me to use React components on my Markdown files, if you dont know what MDX is check this link: [MDX](https://mdxjs.com/).
 
-## Netlify
+### Netlify
 
 What's Netlify? in short Netlify makes it super easy for developers to host websites responsibly, a way that is scalable and secure. In a nutshell, Netlify creates its own kind of repository that pushes both to a Github repository and its own microservices. Then, it executes and distributes content across a wide CDN to deliver pre-built static websites to visitors.
 
 The best thing about Netlify is that it selects the best CDN and distributes content, which results in pre-built websites that load faster than on traditional hosting networks. Instead of loading the site each time the visitor goes to a page, the visitor gets a pre-loaded version straight from the nearest geographical server, sharply reducing load times.
 
 ## How I move my blog from WordPress to Gatsby and MDX
+The first step was to have a backup of my site locally, then using the WordPress Export Tool, I export the XML, first only the post, with no images, images will be exported separately.
+
+To convert the XML files into Markdown, I found this nice post from [Kev Quirk](https://kevq.uk/how-to-convert-wordpress-to-markdown/), basically, you run a node script that will convert your XML files into Markdown.
+
+```bash
+
+    git clone https://github.com/lonekorean/wordpress-export-to-markdown
+
+    # Move into script folder
+    cd wordpress-export-to-markdown
+    # Install pre-requisites required for the script
+    npm install
+    # Run the script
+    node index.js
+```
+
+Voila! All my posts are now in Markdown.
+
+### Develop in Gatsby
+
+I use a MDX starter, I found this very simple starter by [Christopher Biscardi](https://github.com/ChristopherBiscardi/gatsby-starter-mdx-basic), I made some updates on the code to fit my needs. On Gatsby and MDX there is very good information to start from, Gatsby has his on MDX plugin [gatsby-plugin-mdx](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/) so install, add your path to gatsby-config and you’re all set.
+
+```js
+// gatsby-config
+resolve: `gatsby-plugin-mdx`,
+    options: {
+        extensions: ['.mdx', '.md'],
+        defaultLayouts: {
+            posts: require.resolve("./src/components/blog-post-layout.js"), // Set layout to post.
+            default: require.resolve("./src/components/blog-post-layout.js"), // Set Default.
+        }
+```
+
+For the nice particles "skull" I use [react-particles-js](https://www.npmjs.com/package/react-particles-js), to use a mask I have to make use of the `static` folder, there I place the image. Every file you put into that folder will be copied into the public folder. E.g. if you add a file named sun.jpg to the static folder, it’ll be copied to public/sun.jpg
+
+make use of the `static` folder, there I place the image. Every file you put into that folder will be copied into the public folder. For E.g. if you add a file named `sun.jpg` to the static folder, it’ll be copied to `public/sun.jpg`, super handy, I do have an issue with adding one script, with [gatsby-plugin-load-script](https://www.gatsbyjs.com/plugins/gatsby-plugin-load-script/), it comes to the rescue;
+
+For the page transitions, I make use of [gatsby-plugin-transition-link](https://www.gatsbyjs.com/plugins/gatsby-plugin-transition-link) and the AniLink component, it’s a wrapper around the TransitionLink component and provides four default transitions: fade, paintDrip, swipe, and cover.
+
+The styling was done using Styled Components with [Emotion](https://emotion.sh/docs/introduction) and I spice it a little with [Tailwind](https://tailwindcss.com/), with this tool I can easily add Tailwind classes to my Styled components, [Twin](https://github.com/ben-rogerson/twin.macro) blends the magic of Tailwind with the flexibility of css-in-js.
+
+You can check the repo for this project at [elpuas-blog-mdx](https://github.com/elpuas/elpuas-blog-mdx)!
+
+
 
 
 
