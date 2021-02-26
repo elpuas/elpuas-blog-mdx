@@ -69,7 +69,7 @@ const H2 = styled.h2`
 `
 
 const VideoContainer = styled.div`
-    ${tw`grid grid-cols-1 md:grid-cols-2 place-content-center gap-6 place-items-center mt-8`}
+    ${tw`grid grid-cols-1 md:grid-cols-2 gap-6 mt-8`}
 
     .video {
         width: 100%;
@@ -78,10 +78,11 @@ const VideoContainer = styled.div`
     iframe {
 
         ${tw`w-full p-4`}
-        border: solid 1px var(--color-limegreen);
 
+        border: solid 1px var(--color-limegreen);
         height: 360px;
         object-fit: cover;
+        width: 100%;
     }
 `
 
@@ -131,6 +132,11 @@ const WhatIDo = () => (
             <Video
                 videoSrcURL="https://www.youtube.com/embed/W4cx5L12ewI"
                 videoTitle="Codigo con Juan"
+            />
+
+            <Video
+                videoSrcURL="https://www.youtube.com/embed/hmVb8i4VYpY"
+                videoTitle="Karla Campos Show"
             />
         </VideoContainer>
         <BlogPost />
