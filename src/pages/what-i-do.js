@@ -1,9 +1,10 @@
 import React from 'react'
-import tw, { styled } from 'twin.macro';
+import tw, { styled } from 'twin.macro'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Image from '../components/image'
-import BlogPost from "../components/blog-post";
+import BlogPost from '../components/blog-post'
+import Video from '../components/video'
 
 const WhatIDoStyles = styled.div`
     ${ tw`grid grid-cols-2 grid-rows-6 gap-16 mt-20`}
@@ -67,6 +68,23 @@ const H2 = styled.h2`
     ${tw`mt-12`}
 `
 
+const VideoContainer = styled.div`
+    ${tw`grid grid-cols-1 md:grid-cols-2 place-content-center gap-6 place-items-center mt-8`}
+
+    .video {
+        width: 100%;
+    }
+
+    iframe {
+
+        ${tw`w-full p-4`}
+        border: solid 1px var(--color-limegreen);
+
+        height: 360px;
+        object-fit: cover;
+    }
+`
+
 const WhatIDo = () => (
     <Layout>
         <SEO
@@ -74,7 +92,7 @@ const WhatIDo = () => (
         description={"I always been attractive to all forms of expression, and all my life has turn into that, this is a selection of my works from my early stages to more recent time."}
         keywords={['Comix', 'Web Development', 'Necrotica', 'front-end']}
         />
-        <H2>I always been attractive to all forms of expression, and all my life has turn into that, this is a selection of my works from my early stages to more recent time.</H2>
+        <H2>I always been attracted to all forms of art, or expression, and all my life has turn into that, this is a selection of my works from my early stages to more recent time.</H2>
         <WhatIDoStyles>
             <div>
                 <h3>Let’s called the beginning…</h3>
@@ -104,7 +122,19 @@ const WhatIDo = () => (
             <Image fileName="wordcamp-sanjose.png" style={{ width: '100%', height: '401px' }} alt="wordcamp-sanjose" />
             <Image fileName="grafitty.png" style={{ width: '100%', height: '401px' }} alt="graffiti" />
         </WhatIDoStyles>
+        <H2>Videos</H2>
+        <VideoContainer>
+            <Video
+                videoSrcURL="https://www.youtube.com/embed/Df2AkeSS1PQ"
+                videoTitle="JavaScript for WordPress Conference"
+            />
+            <Video
+                videoSrcURL="https://www.youtube.com/embed/W4cx5L12ewI"
+                videoTitle="Codigo con Juan"
+            />
+        </VideoContainer>
         <BlogPost />
+
     </Layout>
 );
 
