@@ -40,10 +40,10 @@ const MenuLinks = styled(AniLink)`
                 color: var(--color-dark-blue);
 
                 &.active {
-                    color: var( --color-blue);
+                    color: var(--color-limegreen);
                     &::after {
                         content: '';
-                        background-color: var( --color-blue);
+                        background-color: var(--color-limegreen);
                         height: 0.25rem;
                         width: 100%;
                         display: flex;

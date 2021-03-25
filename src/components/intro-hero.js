@@ -13,6 +13,13 @@ const ParticlesStyles = styled.div`
         }
     }
 
+    @media ( max-width: 26.75rem ) {
+        .skull-background {
+            margin-left: -13.3125rem;
+        }
+    }
+
+
     .skull-background {
         margin-top: -15.625rem;
     }
