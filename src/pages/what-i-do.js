@@ -114,13 +114,13 @@ const WhatIDo = () => (
                 <h3>Design &amp; Code for the Web</h3>
                 <p>When Pencil meets Pixels, and Pixels meet Code, once I made the transition for graphic designer to web designer when the web was made of Netscape, Macromedia and Alta Vista, currently I enjoy coding a PSD or design and code my own. Sketch, Photoshop, Figma meets VSCode.</p>
             </div>
-            <Image fileName="web-design.png" style={{ width: '100%', height: '401px' }} alt="web-design.png" />
-            <Image fileName="web-development.png" style={{ width: '100%', height: '401px' }} alt="web-development" />
+            <Image fileName="web-design.png" style={{ width: '100%', height: '401px' }}  alt="web-design.png" />
+            <Image fileName="web-development.png" style={{ width: '100%', height: '401px' }}  alt="web-development" />
             <div>
                 <h3>Other Cool Stuffs I Do</h3>
                 <p>I also spend some time, with my other passion WordPress, I’m Speaker and Co-Organizer of my local community….don’t tell anybody I love to do street art, so occasionally I do some.</p>
             </div>
-            <Image fileName="wordcamp-mexico.png" style={{ width: '100%', height: '401px' }} alt="wordcamp-mexico" />
+            <Image fileName="wordcamp-mexico.png" style={{ width: '100%', height: '401px' }}  alt="wordcamp-mexico" />
             <Image fileName="wordcamp-sanjose.png" style={{ width: '100%', height: '401px' }} alt="wordcamp-sanjose" />
         </WhatIDoStyles>
         <H2>Videos</H2>

@@ -38,17 +38,17 @@ export default function Footer() {
             <Icons>
                 <li>
                     <a href="https://github.com/elpuas" target="_blank" rel="noreferrer">
-                        <img src={Github} alt="github icon"/>
+                        <img src={Github} alt="github icon" width="24" height="24"/>
                     </a>
                 </li>
                 <li>
                     <a href="https://profiles.wordpress.org/elpuas/" target="_blank" rel="noreferrer">
-                        <img src={WP} alt="wordpress icon"/>
+                        <img src={WP} alt="wordpress icon" width="24" height="24"/>
                     </a>
                 </li>
                 <li>
                     <a href="https://twitter.com/3LPU4S" target="_blank" rel="noreferrer">
-                        <img src={Twitter} alt="twitter icon" />
+                        <img src={Twitter} alt="twitter icon" width="24" height="24" />
                     </a>
                 </li>
             </Icons>

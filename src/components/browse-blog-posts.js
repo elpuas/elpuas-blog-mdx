@@ -101,7 +101,7 @@ function BrowseBlogPosts({ pageContext }) {
           <div key={node.id}>
             <BoxHover>
                 <figure className="post-image">
-                  {thumbnail ? <img src={thumbnail.childImageSharp.fluid.src} width="100%" data-src={thumbnail.childImageSharp.fluid.src} data-srcset={thumbnail.childImageSharp.fluid.srcSet} data-sizes={thumbnail.childImageSharp.fluid.sizes} className="lazyload" alt={`post-${title}`}/> : null }
+                  {thumbnail ? <img src={thumbnail.childImageSharp.fluid.src} width="100%" height="100%" data-src={thumbnail.childImageSharp.fluid.src} data-srcset={thumbnail.childImageSharp.fluid.srcSet} data-sizes={thumbnail.childImageSharp.fluid.sizes} className="lazyload" alt={`post-${title}`}/> : null }
                 </figure>
                 <div className="post-content">
                 <AniLink

@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
         >
-          <img src={ Logo } alt={ siteTitle } />
+          <img src={ Logo } alt={ siteTitle } width="100px" height="100px" />
         </Link>
     </HeaderLogo>
     <Burger />

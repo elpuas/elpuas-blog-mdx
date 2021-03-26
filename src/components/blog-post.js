@@ -34,7 +34,7 @@ function BlogPost ( ) {
             color:var(--color-blue);
         }
 
-        h3 {
+        h2 {
             font-family: 'Heebo', sans-serif;
             color: var(--color-limegreen);
         }
@@ -114,20 +114,20 @@ function BlogPost ( ) {
                     <BoxHover
                         key={id}
                     >
-                        { thumbnail ? <Img fluid={thumbnail.childImageSharp.fluid} alt={`post-${slug}`} className="post-image" /> : null }
+                        { thumbnail ? <Img fluid={thumbnail.childImageSharp.fluid} alt={`post-${slug}`} width="100%" height="401" className="post-image" /> : null }
                         <div className="post-content">
-                            <h3>
+                            <h2>
                                 <Link
                                 to={`/${slug}`}
                                 >
                                     {title}
                                 </Link>
-                            </h3>
+                            </h2>
                             <p>{excerpt}</p>
                             <Link
                                 to={`/${slug}`}
                                 >
-                                <img src={ArrowForward} alt={`post-${slug}`} width="24" />
+                                <img src={ArrowForward} alt={`post-${slug}`} width="24" height="24" />
                             </Link>
                         </div>
                     </BoxHover>

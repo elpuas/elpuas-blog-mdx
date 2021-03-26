@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix Intro Hero with a media-query for iPhone 12 XS Max
 - Update README.md
 - Add tabindex to Navigation Links
+- Fix Image elements that not have explicit width and height and was impact on performance
 
 ## [1.0.0] - 2020-06-23
 ### Added
