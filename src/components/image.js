@@ -32,7 +32,8 @@ const Image = ( { fileName, alt, style  } ) => {
 
   return (
     <figure>
-      { fluid.originalName === fileName ? <Img fluid={fluid} alt={alt} style={style} /> : null }
+      { fluid.originalName === fileName ? <Img fluid={fluid} alt={alt} style={style} width="1024" height="468
+      " /> : null }
     </figure>
   )
 }

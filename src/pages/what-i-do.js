@@ -101,6 +101,7 @@ const WhatIDo = () => (
             </div>
             <Image fileName="necrotica.png" style={{ width: '100%', height: '401px' }} alt="necrotica" />
             <Image fileName="tattoo-flash.png" style={{ width: '100%', height: '401px' }} alt="tattoo-flash" />
+            <Image fileName="grafitty.png" style={{ width: '100%', height: '401px' }} alt="tagging" />
             <div>
                 <h3>The Advertising Years…</h3>
                 <p>I spend some time doing print artwork, brochures, ads, magazines… you named,&nbsp; Working with an agency on the earlies of Y2K, when a designer was also brand designer,&nbsp; prepress, image correction, color correction, using a lot the path tool, Adobe Package and CMYK was my playground, and still is! #GraphicDesign&nbsp; #ProductDesign</p>
@@ -121,7 +122,6 @@ const WhatIDo = () => (
             </div>
             <Image fileName="wordcamp-mexico.png" style={{ width: '100%', height: '401px' }} alt="wordcamp-mexico" />
             <Image fileName="wordcamp-sanjose.png" style={{ width: '100%', height: '401px' }} alt="wordcamp-sanjose" />
-            <Image fileName="grafitty.png" style={{ width: '100%', height: '401px' }} alt="graffiti" />
         </WhatIDoStyles>
         <H2>Videos</H2>
         <VideoContainer>

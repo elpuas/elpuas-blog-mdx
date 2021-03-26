@@ -68,7 +68,15 @@ module.exports = {
         background_color: '#000729',
         theme_color: '#000729',
         display: 'minimal-ui',
-        icon: 'src/images/skull-icon.png', // This path is relative to the root of the site.
+        icon: "src/images/skull-icon.png",
+        icons: [
+          {
+            "src": "src/images/skull-icon.png",
+            "sizes": "196x196",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        ] // This path is relative to the root of the site.
       },
     },
     {

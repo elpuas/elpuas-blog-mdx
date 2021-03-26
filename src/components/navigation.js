@@ -55,26 +55,28 @@ const MenuLinks = styled(AniLink)`
     }
 `;
 
+const backgroundColor = "#000106";
+
 const Navigation = ( { open } ) => {
     return (
         <Ul open={open} >
             <li>
-                <MenuLinks paintDrip color="#000106" to="/" duration={0.5} activeClassName="active">
+                <MenuLinks paintDrip color={backgroundColor} to="/" duration={0.5} activeClassName="active">
                 Home
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color="#000106" duration={0.5} to="/about" activeClassName="active">
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/about" activeClassName="active">
                 About
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color="#000106" duration={0.5} to="/what-i-do" activeClassName="active">
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/what-i-do" activeClassName="active">
                 What I Do
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color="#000106" duration={0.5} to="/blog/1" activeClassName="active">
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/blog/1" activeClassName="active">
                 Blog
                 </MenuLinks>
             </li>
