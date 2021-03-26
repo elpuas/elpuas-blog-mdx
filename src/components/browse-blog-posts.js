@@ -1,7 +1,8 @@
 import React from 'react'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Layout from './layout'
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 import BoxHover from './hover-box';
 import ArrowForward from '../images/arrow_forward_24px.svg'
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Logo from '../images/skull-icon.svg'
-import tw, { styled } from 'twin.macro'
+import styled from '@emotion/styled'
+import tw from 'twin.macro';
 import Burger from './burger'
 
 const HeaderLogo = styled.div`

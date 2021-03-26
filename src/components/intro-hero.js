@@ -1,6 +1,7 @@
 import React from 'react'
 import Particles from 'react-particles-js';
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
 const ParticlesStyles = styled.div`
     ${tw`grid max-w-4xl overflow-hidden`}

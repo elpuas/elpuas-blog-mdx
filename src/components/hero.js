@@ -1,5 +1,6 @@
 import React from 'react'
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 import GlitchText from './glitch-text';
 
 const HeroContainer = styled.div`

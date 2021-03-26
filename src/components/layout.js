@@ -3,7 +3,8 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 import '../utils/globals.css'
 
 const LayoutStyle = styled.div`

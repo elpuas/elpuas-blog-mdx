@@ -2,7 +2,8 @@ import React from 'react'
 import Github from '../images/github.svg'
 import WP from '../images/wordpress.svg'
 import Twitter from '../images/twitter.svg'
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
 const FooterStyles = styled.div`
     margin-top: 11.625rem;

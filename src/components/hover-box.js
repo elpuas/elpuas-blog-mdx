@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
 const BoxHover = ( {children} ) => {
 

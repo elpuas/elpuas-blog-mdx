@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import Navigation from './navigation'
-import tw, { styled } from 'twin.macro'
+import styled from '@emotion/styled'
+import tw from 'twin.macro';
 
 const StyledBurger = styled.div`
     ${tw`w-8 h-4 fixed justify-around`}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
-import tw, { styled } from 'twin.macro';
+import styled from '@emotion/styled'
+import tw from 'twin.macro';
 import SEO from '../components/seo'
 import Image from '../components/image'
 import BlogPost from "../components/blog-post";
