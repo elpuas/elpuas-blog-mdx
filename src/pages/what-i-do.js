@@ -125,13 +125,19 @@ const WhatIDo = () => (
         </WhatIDoStyles>
         <H2>Videos</H2>
         <VideoContainer>
-            <Video
-                videoSrcURL="https://www.youtube.com/embed/Df2AkeSS1PQ"
-                videoTitle="JavaScript for WordPress Conference"
+        <Video
+                videoSrcURL="https://www.youtube.com/embed/B33I2bvt6TQ"
+                videoTitle="Gatsby Conf 2021"
             />
+
             <Video
                 videoSrcURL="https://www.youtube.com/embed/W4cx5L12ewI"
                 videoTitle="Codigo con Juan"
+            />
+
+            <Video
+                videoSrcURL="https://www.youtube.com/embed/Df2AkeSS1PQ"
+                videoTitle="JavaScript for WordPress Conference"
             />
 
             <Video
