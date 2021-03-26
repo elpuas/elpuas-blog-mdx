@@ -13,7 +13,6 @@ module.exports = {
       center: true,
     },
     extend: {
-
       colors: {
         transparent: 'transparent',
         punklimegreen: {
