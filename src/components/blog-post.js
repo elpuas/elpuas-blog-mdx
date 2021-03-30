@@ -37,6 +37,7 @@ function BlogPost ( ) {
         h2 {
             font-family: 'Heebo', sans-serif;
             color: var(--color-limegreen);
+            font-size: 28px;
         }
 
         a {
