@@ -85,6 +85,102 @@ const VideoContainer = styled.div`
         width: 100%;
     }
 `
+// Move all this data objects as arrays bellow to google sheets.
+const videos = [
+    {
+        url: 'https://www.youtube.com/embed/2FIubs9rAxA',
+        title: 'WordPress Mexico',
+        id: '2FIubs9rAxA',
+    },
+    {
+        url: 'https://www.youtube.com/embed/B33I2bvt6TQ',
+        title: 'GatsbyConf 2021',
+        id: 'B33I2bvt6TQ',
+    },
+    {
+        url: 'https://www.youtube.com/embed/W4cx5L12ewI',
+        title: 'Codigo con Juan',
+        id:'W4cx5L12ewI',
+    },
+    {
+        url: 'https://www.youtube.com/embed/Df2AkeSS1PQ',
+        title: 'JavaScript for WordPress',
+        id:'Df2AkeSS1PQ',
+    },
+    {
+        url: 'https://www.youtube.com/embed/hmVb8i4VYpY',
+        title: 'Karla Campos Show',
+        id:'hmVb8i4VYpY',
+    },
+]
+
+const comics = [
+
+    {
+        filename: 'necrotica.png',
+        alt: 'necrotica',
+        id: 'comix-necrotica',
+    },
+    {
+        filename: 'tattoo-flash.png',
+        alt: 'tattoo-flash',
+        id: 'tattoo-flash',
+    },
+    {
+        filename: 'grafitty.png',
+        alt: 'graffiti',
+        id: 'graffiti',
+    }
+]
+
+const press = [
+    {
+        filename: 'press-1.png',
+        alt: 'brochure',
+        id: 'brochure',
+    },
+    {
+        filename: 'press-2.png',
+        alt: 'flyers',
+        id: 'flyers',
+    },
+    {
+        filename: 'press-3.png',
+        alt: 'logo',
+        id: 'logo',
+    },
+    {
+        filename: 'press-4.png',
+        alt: 'magazine',
+        id: 'magazine',
+    },
+]
+
+const web = [
+    {
+        filename: 'web-design.png',
+        alt: 'web-design',
+        id: 'web-design',
+    },
+    {
+        filename: 'web-development.png',
+        alt: 'web-development',
+        id: 'web-development',
+    },
+]
+
+const pics = [
+    {
+        filename: 'wordcamp-mexico.png',
+        alt: 'wordcamp-mexico',
+        id: 'wordcamp-mexico',
+    },
+    {
+        filename: 'wordcamp-sanjose.png',
+        alt: 'wordcamp-sanjose',
+        id: 'wordcamp-sanjose',
+    },
+]
 
 const WhatIDo = () => (
     <Layout>
@@ -99,51 +195,81 @@ const WhatIDo = () => (
                 <h3>Let’s called the beginning…</h3>
                 <p>I always like to draw, first comics big fan of dark characters like Wolverine, HellBoy, Spawn…at some point a group of illustrator made the first comic book in Costa Rica, Named Camaleon Comix, I create this character name Necrotica, at that time start experimenting with some street art (early graffiti ) and more lately when I get into tattoos I made occasionally flash art for my friends.</p>
             </div>
-            <Image fileName="necrotica.png" style={{ width: '100%', height: '401px' }} alt="necrotica" />
-            <Image fileName="tattoo-flash.png" style={{ width: '100%', height: '401px' }} alt="tattoo-flash" />
-            <Image fileName="grafitty.png" style={{ width: '100%', height: '401px' }} alt="tagging" />
+            {
+                Array.isArray( comics ) && comics.map( ( img ) => {
+                    return (
+                        <Image
+                        key={ img.id }
+                        fileName={ img.filename }
+                        style={{ width: '100%', height: '401px' }}
+                        alt={ img.alt}
+                        />
+                    )
+                })
+            }
             <div>
                 <h3>The Advertising Years…</h3>
                 <p>I spend some time doing print artwork, brochures, ads, magazines… you named,&nbsp; Working with an agency on the earlies of Y2K, when a designer was also brand designer,&nbsp; prepress, image correction, color correction, using a lot the path tool, Adobe Package and CMYK was my playground, and still is! #GraphicDesign&nbsp; #ProductDesign</p>
             </div>
-            <Image fileName="press-1.png" style={{ width: '100%', height: '401px' }} alt="brochure" />
-            <Image fileName="press-2.png" style={{ width: '100%', height: '401px' }} alt="flyers" />
-            <Image fileName="press-3.png" style={{ width: '100%', height: '401px' }} alt="logo" />
-            <Image fileName="press-4.png" style={{ width: '100%', height: '401px' }} alt="magazine" />
+            {
+                Array.isArray( press ) && press.map( ( img ) => {
+                    return (
+                        <Image
+                        key={ img.id }
+                        fileName={ img.filename }
+                        style={{ width: '100%', height: '401px' }}
+                        alt={ img.alt}
+                        />
+                    )
+                })
+            }
             <div>
                 <h3>Design &amp; Code for the Web</h3>
                 <p>When Pencil meets Pixels, and Pixels meet Code, once I made the transition for graphic designer to web designer when the web was made of Netscape, Macromedia and Alta Vista, currently I enjoy coding a PSD or design and code my own. Sketch, Photoshop, Figma meets VSCode.</p>
             </div>
-            <Image fileName="web-design.png" style={{ width: '100%', height: '401px' }}  alt="web-design.png" />
-            <Image fileName="web-development.png" style={{ width: '100%', height: '401px' }}  alt="web-development" />
+                {
+                    Array.isArray( web ) && web.map( ( img ) => {
+                        return (
+                            <Image
+                            key={ img.id }
+                            fileName={ img.filename }
+                            style={{ width: '100%', height: '401px' }}
+                            alt={ img.alt}
+                            />
+                        )
+                    })
+                }
             <div>
                 <h3>Other Cool Stuffs I Do</h3>
                 <p>I also spend some time, with my other passion WordPress, I’m Speaker and Co-Organizer of my local community….don’t tell anybody I love to do street art, so occasionally I do some.</p>
             </div>
-            <Image fileName="wordcamp-mexico.png" style={{ width: '100%', height: '401px' }}  alt="wordcamp-mexico" />
-            <Image fileName="wordcamp-sanjose.png" style={{ width: '100%', height: '401px' }} alt="wordcamp-sanjose" />
+            {
+                    Array.isArray( pics ) && pics.map( ( img ) => {
+                        return (
+                            <Image
+                            key={ img.id }
+                            fileName={ img.filename }
+                            style={{ width: '100%', height: '401px' }}
+                            alt={ img.alt}
+                            />
+                        )
+                    })
+                }
         </WhatIDoStyles>
         <H2>Videos</H2>
         <VideoContainer>
-        <Video
-                videoSrcURL="https://www.youtube.com/embed/B33I2bvt6TQ"
-                videoTitle="Gatsby Conf 2021"
-            />
+        {
+            Array.isArray( videos ) && videos.map( ( video ) => {
+                return (
+                    <Video
+                        key={ video.id }
+                        videoSrcURL={ video.url }
+                        videoTitle={ video.src }
+                    />
+                )
+            })
+        }
 
-            <Video
-                videoSrcURL="https://www.youtube.com/embed/W4cx5L12ewI"
-                videoTitle="Codigo con Juan"
-            />
-
-            <Video
-                videoSrcURL="https://www.youtube.com/embed/Df2AkeSS1PQ"
-                videoTitle="JavaScript for WordPress Conference"
-            />
-
-            <Video
-                videoSrcURL="https://www.youtube.com/embed/hmVb8i4VYpY"
-                videoTitle="Karla Campos Show"
-            />
         </VideoContainer>
         <BlogPost />
 
