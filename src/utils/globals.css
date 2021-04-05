@@ -88,9 +88,14 @@
     color: var(--color-dark-blue);
   }
 
-  .light p {
+  .light p:not( .post-content p ) {
 
-    color: cadetblue;
+    color: cadetblue !important;
+  }
+
+  .light .skull-background ~ p {
+
+    color: var(--color-blue) !important;
   }
 
   .light h1,
