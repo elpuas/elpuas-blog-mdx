@@ -2,32 +2,7 @@ import React from 'react'
 import Github from '../images/github.svg'
 import WP from '../images/wordpress.svg'
 import Twitter from '../images/twitter.svg'
-import tw, { styled } from 'twin.macro';
-
-const FooterStyles = styled.div`
-    margin-top: 11.625rem;
-    padding-bottom: 6.250rem;
-`
-
-const Icons = styled.ul`
-${tw`text-center mt-5`}
-
-li {
-    ${tw`mr-3 inline-flex`}
-    &:last-child {
-        ${tw`mr-0`}
-    }
-}
-
-`
-
-const Copyright = styled.div`
-    ${tw`text-center`}
-    color: var(--color-blue);
-    a {
-        color: var(--color-blue);
-    }
-`
+import { FooterStyles, Icons, Copyright} from '../utils/styles'
 
 export default function Footer() {
     return (
