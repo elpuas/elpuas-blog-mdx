@@ -83,6 +83,11 @@ const VideoContainer = styled.div`
         height: 360px;
         object-fit: cover;
         width: 100%;
+
+        @media ( max-width: 26.75rem ) {
+
+            height: 211px;
+        }
     }
 `
 // Move all this data objects as arrays bellow to google sheets.
