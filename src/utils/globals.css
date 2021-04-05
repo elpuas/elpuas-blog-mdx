@@ -38,10 +38,79 @@
     font-size: 1.5rem;
   }
 
-  body {
+  .dark {
     background-color: var(--color-dark-blue);
     color: var(--color-white);
   }
+
+  .header-logo {
+
+    max-width: 50px;
+  }
+
+  .dark .header-logo .light-logo {
+
+    display: none;
+  }
+
+  .light .header-logo .dark-logo {
+
+    display: none;
+  }
+
+  .light .header-logo {
+
+    display: block;
+  }
+
+  .light svg {
+
+    fill: steelblue;
+  }
+
+  .light .post-image::after {
+
+    background-color: cadetblue !important;
+  }
+
+  .light .post-content h2 {
+
+    color: steelblue;
+  }
+
+  .dark svg {
+
+    fill: var(--color-limegreen);
+  }
+
+  .light {
+    background-color: mintcream;
+    color: var(--color-dark-blue);
+  }
+
+  .light p {
+
+    color: cadetblue;
+  }
+
+  .light h1,
+  .light  h2,
+  .light  h3 {
+
+    color: steelblue;
+  }
+
+  .light p a {
+
+    color: steelblue;
+    text-decoration-color: var(--color-limegreen);
+    text-decoration-line: underline;
+    text-decoration-thickness: .125em;
+    text-underline-offset: 1.5px;
+    text-decoration-style: dashed;
+  }
+
+
 
   p {
     @apply leading-relaxed;
@@ -50,12 +119,83 @@
     color: var(--color-blue);
   }
 
+  .light code,
+  .light strong {
+
+    color: palevioletred;
+  }
+
+  .light nav li a {
+
+    color: steelblue;
+  }
+
   p a {
     color: var(--color-limegreen);
   }
 
   code, strong {
     color: var(--color-limegreen);
+  }
+
+  .light article {
+
+      @apply p-5 bg-white relative;
+
+      @screen md {
+
+        @apply p-16;
+      }
+
+  }
+
+  .light article,
+  .light article::before,
+  .light article::after {
+
+  @apply border border-gray-100;
+  box-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.1 );
+
+}
+
+.light article::before,
+.light article::after {
+  content: "";
+
+  @apply absolute h-full bg-white;
+
+  width: 99%;
+}
+
+.light article::before {
+
+  @apply top-0 rotate-1;
+
+  right: 15px;
+  z-index: -1;
+}
+
+.light article::after {
+
+  top: 5px;
+  right: -5px;
+  transform: rotate(1deg);
+  z-index: -2;
+}
+
+  .dark article {
+
+    @apply p-4;
+
+    @screen md {
+
+      @apply p-16;
+    }
+  }
+
+  .light .burger div {
+
+    background-color: steelblue;
   }
 }
 
@@ -81,3 +221,7 @@
   }
 }
 
+[class*='deckgo-highlight-code-'] {
+
+  @apply mb-16;
+}

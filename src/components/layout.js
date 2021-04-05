@@ -8,8 +8,6 @@ import '../utils/globals.css'
 const LayoutStyle = styled.div`
 
   ${tw`max-w-screen-xl mx-auto pl-5 pr-5`}
-
-  background-color: var(--color-dark-blue);
 `;
 
 const Layout = ({ children }) => (

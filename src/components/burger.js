@@ -4,7 +4,7 @@ import Navigation from './navigation'
 import tw, { styled } from 'twin.macro'
 
 const StyledBurger = styled.div`
-    ${tw`w-8 h-4 fixed justify-around`}
+    ${tw`w-8 h-4 fixed justify-around mt-5`}
     display: none;
     right: 20px;
     top: 15px;
@@ -38,7 +38,7 @@ const Burger = () => {
 
     return (
     <>
-        <StyledBurger open={open} onClick={() => setOpen(!open)} >
+        <StyledBurger open={open} onClick={() => setOpen(!open)} className="burger">
             <div />
             <div />
             <div />

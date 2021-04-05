@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Logo from '../images/skull-icon.svg'
+import DarkLogo from '../images/skull-as-image.png'
+import LightLogo from '../images/skull-glasses.png'
 import tw, { styled } from 'twin.macro'
 import Burger from './burger'
 
@@ -19,11 +20,12 @@ const Nav = styled.nav`
 
 const Header = ({ siteTitle }) => (
   <Nav>
-    <HeaderLogo>
+    <HeaderLogo className="header-logo">
         <Link
           to="/"
         >
-          <img src={ Logo } alt={ siteTitle } width="100px" height="100px" />
+          <img className="dark-logo" src={ DarkLogo } alt={ siteTitle } />
+          <img className="light-logo" src={ LightLogo } alt={ siteTitle } />
         </Link>
     </HeaderLogo>
     <Burger />

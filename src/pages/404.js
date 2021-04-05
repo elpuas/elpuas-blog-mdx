@@ -34,7 +34,7 @@ const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
     <H2>Page Not Found </H2>
-    <P>You just hit a route that doesn&#39;t exist... the sadness.  🔊  &nbsp;Enjoy my favorite playlist or <a href="">click here</a> to go to the homepage</P>
+    <P>You just hit a route that doesn&#39;t exist... the sadness.  🔊  &nbsp;Enjoy my favorite playlist or <a href="/">click here</a> to go to the homepage</P>
     <Styles404>
       <img src={gifMaker} alt="Otter dancing with a fish" />
       <iframe
