@@ -6,8 +6,8 @@ import tw, { styled } from 'twin.macro';
 import '../utils/globals.css'
 
 const LayoutStyle = styled.div`
-${tw`max-w-screen-xl mx-auto pl-5 pr-5`}
-background-color: var(--color-dark-blue);
+
+  ${tw`max-w-screen-xl mx-auto pl-5 pr-5`}
 `;
 
 const Layout = ({ children }) => (

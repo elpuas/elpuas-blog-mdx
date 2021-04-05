@@ -1,6 +1,7 @@
 import React from "react";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import tw, { styled } from "twin.macro";
+import DarkModeSwitcher from "./darkmode-switcher";
 
 const MenuLinks = styled(AniLink)`
     ${tw`block px-3 py-2 text-base font-medium focus:outline-none transition duration-150 ease-in-out`}
@@ -8,8 +9,9 @@ const MenuLinks = styled(AniLink)`
 `;
 
     const Ul = styled.ul`
-    ${tw`list-none flex items-start`}
+    ${tw`list-none flex items-center`}
     flex-flow: row nowrap;
+    height: 50px;
     z-index: 200;
 
     li {
@@ -79,6 +81,9 @@ const Navigation = ( { open } ) => {
                 <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/blog/1" activeClassName="active">
                 Blog
                 </MenuLinks>
+            </li>
+            <li>
+                <DarkModeSwitcher />
             </li>
         </Ul>
     );

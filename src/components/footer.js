@@ -1,33 +1,8 @@
 import React from 'react'
-import Github from '../images/github.svg'
-import WP from '../images/wordpress.svg'
-import Twitter from '../images/twitter.svg'
-import tw, { styled } from 'twin.macro';
-
-const FooterStyles = styled.div`
-    margin-top: 11.625rem;
-    padding-bottom: 6.250rem;
-`
-
-const Icons = styled.ul`
-${tw`text-center mt-5`}
-
-li {
-    ${tw`mr-3 inline-flex`}
-    &:last-child {
-        ${tw`mr-0`}
-    }
-}
-
-`
-
-const Copyright = styled.div`
-    ${tw`text-center`}
-    color: var(--color-blue);
-    a {
-        color: var(--color-blue);
-    }
-`
+import  Twitter from './icons/twitter'
+import Github from './icons/github'
+import WordPress from './icons/wordpress'
+import { FooterStyles, Icons, Copyright} from '../utils/styles'
 
 export default function Footer() {
     return (
@@ -38,17 +13,17 @@ export default function Footer() {
             <Icons>
                 <li>
                     <a href="https://github.com/elpuas" target="_blank" rel="noreferrer">
-                        <img src={Github} alt="github icon" width="24" height="24"/>
+                        <Github />
                     </a>
                 </li>
                 <li>
                     <a href="https://profiles.wordpress.org/elpuas/" target="_blank" rel="noreferrer">
-                        <img src={WP} alt="wordpress icon" width="24" height="24"/>
+                        <WordPress />
                     </a>
                 </li>
                 <li>
                     <a href="https://twitter.com/3LPU4S" target="_blank" rel="noreferrer">
-                        <img src={Twitter} alt="twitter icon" width="24" height="24" />
+                        <Twitter />
                     </a>
                 </li>
             </Icons>

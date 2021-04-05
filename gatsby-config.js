@@ -49,6 +49,7 @@ module.exports = {
         path: `${__dirname}/src/pages/blog`
       }
     },
+    'gatsby-plugin-dark-mode',
     'gatsby-plugin-transition-link',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
