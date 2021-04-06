@@ -49,6 +49,13 @@ module.exports = {
         path: `${__dirname}/src/pages/blog`
       }
     },
+    {
+      resolve: 'gatsby-source-google-spreadsheets',
+      options: {
+        spreadsheetId: '11F6iJjkS9aFZxV_Ys1LiOnDwZFAwCZTTvFmzYCAGwUk',
+        credentials: require('./client_credentials.json')
+      }
+    },
     'gatsby-plugin-dark-mode',
     'gatsby-plugin-transition-link',
     'gatsby-transformer-sharp',
