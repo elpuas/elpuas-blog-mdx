@@ -5,6 +5,7 @@ import Image from '../components/image'
 import BlogPost from "../components/blog-post";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { AboutStyles } from '../utils/styles'
+import { graphql } from 'gatsby'
 
 const About = ( { data } ) => {
 
