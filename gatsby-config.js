@@ -60,7 +60,7 @@ module.exports = {
           type: 'service_account',
           project_id: process.env.GATSBY_PROJECT_ID,
           private_key_id: process.env.GATSBY_PRIVATE_KEY_ID,
-          private_key: JSON.parse( process.env.GATSBY_PRIVATE_KEY ),
+          private_key: process.env.GATSBY_PRIVATE_KEY.replace(new RegExp('\\\\n', '\g'), '\n'),
           client_email: process.env.GATSBY_CLIENT_EMAIL,
           client_id: '',
           auth_uri: 'https://accounts.google.com/o/oauth2/auth',
