@@ -35,6 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Refactor some Code on What I Do page.
 - Fix an Issue on Videos, showing only half thumb, adjust the height on iframe to fix the issue.
+- Add Dark Mode
+- Update 404 Page
 
 ## [1.1.0] - 2021-03-26
 
