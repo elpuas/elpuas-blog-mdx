@@ -8,7 +8,7 @@ const Styles404 = styled.div`
 
   ${tw`flex justify-evenly flex-row`}
 
-  @media ( max-width: 26.563rem ) {
+  @media ( max-width: 56.25rem ) {
       ${tw`flex-col justify-center`}
 
       img {
