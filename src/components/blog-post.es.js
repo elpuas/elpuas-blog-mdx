@@ -76,8 +76,8 @@ function BlogPost ( ) {
 
     // Query
     const { allMdx } = useStaticQuery( graphql`
-            query blogPost {
-                allMdx(filter: {frontmatter: {language: {eq: "EN"}}}, sort: {order: DESC, fields: frontmatter___date}, limit: 3) {
+            query blogPostEs {
+                allMdx(filter: {frontmatter: {language: {eq: "ES"}}}, sort: {order: DESC, fields: frontmatter___date}, limit: 3) {
                     edges {
                         node {
                             frontmatter {
