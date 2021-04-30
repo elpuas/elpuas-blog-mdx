@@ -1,0 +1,259 @@
+---
+title: i18 con Gatsby
+author: Alfredo Navas
+date: 2021-04-30
+thumbnail: ../../images/bosh.png
+language: ES
+---
+
+## Agregando I18n a mi sitio en Gatsby
+
+Cuando tenia mi sitio originalmente en WordPress manejaba las traducciones con algun plugin como WPML o Polylang, como decidi moverme hacia MDX pues mi blog era una mezcla de articulos en ingles y espanol.
+
+Esta es una descripcion paso a paso de la solucion que implemente.
+
+### 1. Investigacion
+
+Primero me puse a buscar informacion relacionada, mucha de la que encontre, aplicaba mas que nada a proyectos muy especificos, pero me dieron una buena idea de por donde empezar. dentro de la informacion que encontre destacan estos articulos:
+- Por su puesto el primer lugar fue la [Documentacion de Gatsby](https://www.gatsbyjs.com/docs/how-to/adding-common-features/localization-i18n/)
+- [Multilingual Gatsby.js](https://kalinchernev.github.io/multilingual-gatsbyjs) de [@kalinchernev](https://www.twitter.com/kalinchernev)
+- El plugin por el cual me decidi a usar [gatsby-plugin-i18n](https://www.gatsbyjs.com/plugins/@przemuh/gatsby-plugin-i18n/)
+
+### 2. Manos a la Obra
+
+Lo que pienso hacer con ayuda del plugin, es duplicar mis paginas y agregar el prefijo del lenguaje, en mi caso `es` para español y ninguno para ingles ( pues es el lenguaje que uso por defecto ), asi pues lo primero es instalar el plugin.
+
+Nota: Este plugin no traduce mensajes, solo crea rutas para cada idioma, y puede usar diferentes componentes para cada idioma si lo deseas.
+
+Nos vamos a la consola:
+
+```bash
+npm i gatsby-plugin-i18n
+```
+
+Luego actualize mi `gatsby-config.js` :
+
+```js
+  {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: true
+      }
+  },
+```
+Luego en mis paginas estaticas, solo les agregue el prefijo `es` asi pues:
+
+```bash
+- 📁 pages
+   # Para español usamos el prefijo .es
+   - 📄 index.es.js
+   # El default para el resto de los idiomas es ingles
+   - 📄 index.js
+```
+Veamos para que sirven esas opciones que hemos agregado.
+
+**langKeyDefault**: lanKey para usar cuando no se especifica lanKey.
+
+**useLangKeyLayout**:
+
+  - true: usa un layout diferente para cada langKey (src/pages/index.js, src/pages/index.es.js, ...)
+
+- false: usa el layout por defecto (src/layouts/index.js)
+
+Entonces, ya resuelto el dilema con las paginas estaticas, vamos a reventar el sitio 😃 ..., nos vamos a la consola:
+
+```bash
+gatsby clean && gastby develop
+```
+![giphy](https://media.giphy.com/media/48l9df5HoXXFfIUW8S/giphy.gif)
+
+me voy a `localhost:8000` o [elpuas](https://www.elpuas.com) y voila! mis paginas estan ahora en ingles y espanol, lo puedes notar haciendo click en el tab `ES/EN` en la navegacion, pues listo primer paso resuelto.
+
+No tuve mucho que cambiar en mi codigo mas que en `gatsby-config.js`
+
+Se me olvido agregar que a algunos de mis componentes tambien les agregue un prefijo cuando era necesario, por ejemplo la [navegacion](https://github.com/elpuas/elpuas-blog-mdx/blob/ec40a72ebb4a2f0fd3277cc7416ca3f81788440a/src/components/burger.es.js#L3) quedo `navigation.es.js` para espanol y `navigation.js` para usarse por defecto.
+
+entonces en algunas de mis paginas simplemente importe el componente dependiedo del idioma.
+
+
+### 3. Creando Paginas Programaticamente
+
+Como he mencionado antes mis paginas estan en MDX, y para eso uso el plugin [gatsby-plugin-mdx](https://www.npmjs.com/package/gatsby-plugin-mdx)
+con este plugin puedo accesar todos los post en mi query con el keyword `allMDX`, dicho esto nos abro mi archivo `gatsby-node`
+
+[Inicialmente](https://github.com/elpuas/elpuas-blog-mdx/blob/feature/add-google-sheets/gatsby-node.js) asi tenia mi funcion de crear paginas usando el API de Gatsby:
+
+```js
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return graphql(`
+    query {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            id
+            excerpt(pruneLength: 250)
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              author
+              thumbnail {
+                childImageSharp {
+                    id
+                    fluid(fit: COVER, maxWidth: 287, maxHeight: 446) {
+                      base64
+                      src
+                      srcSet
+                      sizes
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `).then((results, errors) => {
+    if (errors) return Promise.reject(errors)
+    const posts = results.data.allMdx.edges
+  }
+```
+### CreatePages
+
+Crea páginas de forma dinámica. Este punto de extensión se llama solo después de que se completan el abastecimiento inicial y la transformación de los nodos, además de la creación del esquema GraphQL, para que pueda consultar sus datos para crear páginas.
+
+También puede obtener datos de fuentes locales o remotas para crear páginas.
+
+Se me ocurrio, crear un nuevo campo en mis archivos MDX, agregue `language` ES para espanol y EN para ingles, asi de esa manera puedo filtrar mis queries por lenguaje.
+
+```bash
+---
+title: Como agregar scripts a WP de la manera correcta
+author: Alfredo Navas
+date: 2016-11-03
+thumbnail: ../../images/bosh.png
+language: ES
+---
+```
+De esta forma simplemente duplique mi query esta vez con un filtro,un query para espanol y uno por defecto, que serian los post con el `language: EN`:
+
+Este seria mi [query](https://github.com/elpuas/elpuas-blog-mdx/blob/ec40a72ebb4a2f0fd3277cc7416ca3f81788440a/gatsby-node.js#L87) para español:
+
+```js
+const postEs =  await graphql(`
+    query {
+      allMdx(filter: {frontmatter: {language: {eq: "ES"}}}, sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            id
+            excerpt(pruneLength: 250)
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              author
+              language
+              thumbnail {
+                childImageSharp {
+                    id
+                    fluid(fit: COVER, maxWidth: 287, maxHeight: 446) {
+                      base64
+                      src
+                      srcSet
+                      sizes
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `).then((results, errors) => {
+    if (errors) return Promise.reject(errors)
+
+    const posts = results.data.allMdx.edges
+  }
+```
+
+Finalmente usando una vez mas el API de Gatsby, con createPage le indico a cada query cual template usar y el path:
+
+```js
+createPage({
+        path: `/es/blog/${page}`,
+        component: path.resolve('./src/components/browse-blog-posts.es.js'),
+        // El context también se pasa como props al
+        // componente como en la consulta GraphQL del componente.
+        context: { groupedPosts, group, page }
+      })
+```
+
+
+### CreatePage
+
+Gatsby usa Redux internamente para administrar el estado. Cuando implementa una API de Gatsby, se le pasa una colección de acciones (equivalente a acciones vinculadas con bindActionCreators en Redux) que puede usar para manipular el estado de su sitio.
+
+Las acciones del objeto contienen las funciones y estas se pueden extraer individualmente utilizando la desestructuración de objetos ES6.
+
+Una de estas acciones es CreatePage(), a esta funcion denmtro de los parametros que acepta estan `path, component, y context`
+
+- **path** : Cualquier URL válida. Debe comenzar con una barra inclinada `/`
+- **component**: La ruta absoluta al componente de esta página
+- **context**: Para esta página. Se pasan como props al componente `this.props.pageContext`, así como a la consulta graphql como argumentos graphql.
+
+![it works!](https://media.giphy.com/media/VI1sqVgqyYq1OFwQY2/giphy.gif)
+
+El resultado lo pueden ver en:
+
+- Para Espanol [/es/blog/1](https://www.elpuas.com/es/blog/1)
+- Para Ingles [/blog/1](/https://www.elpuas.com/blog/1)
+
+El Siguiente paso son las paginas individuales, que no son generadas con el API de Gatsby directamente, si no con el plugin `gatsby-plugin-mdx`...
+
+
+### Update
+
+Hay un [gihub issue](https://github.com/angeloocana/gatsby-plugin-i18n/pull/93) reportado, y aparentemente ya esta merge en la ultima version, pero el `npm package` esta desactualizado y no contiene la ultima version.
+
+[przemuh](https://github.com/przemuh) tiene un [workaround](https://github.com/angeloocana/gatsby-plugin-i18n/pull/93#issuecomment-633276926) pero claramente fallaria en la nube.
+
+### Solucion
+
+Mientras se resulve la actualizacion del plugin, mi solucion fue agregandole un condicional al [post layout](https://github.com/elpuas/elpuas-blog-mdx/blob/feature/update-layout-by-language/src/components/blog-post-layout.js) asi que basicamente:
+
+extraigo language del objeto:
+
+```js
+const BlogPostLayout = ({ children, pageContext }) => {
+  deckDeckGoHighlightElement();
+  const { title, author, language } = pageContext.frontmatter
+  ...
+}
+```
+
+Y como en mi caso lo unico que cambia es el layout lo use de esta manera:
+
+```js
+
+if (language && language === 'ES') {
+    return (
+      // Regreso el layout para español
+      <LayoutEs />
+    )
+} else {
+      return(
+      // Regreso el layout por defecto
+        <Layout />
+      )
+    }
+```
+
+El unico problema aqui es que las rutas en espanol no llevan el prefijo `/es/` asi que sera esperara que actualizen el plugin, por el momento mi sitio esta en dos idiomas.
+
+![no way](https://media.giphy.com/media/mEye6n0q25Z3wzccef/giphy.gif)
+
+Espero esta experiencia te sirva en algun projecto, gracias por llegar hasta aqui.
