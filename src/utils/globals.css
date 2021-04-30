@@ -93,6 +93,19 @@
     color: cadetblue !important;
   }
 
+  ul {
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+  }
+
+  ul li {
+    margin-bottom: 1rem;
+  }
+
+  p > img {
+    margin: 2rem auto;
+  }
+
   .light .skull-background ~ p {
 
     color: var(--color-blue) !important;
@@ -105,7 +118,7 @@
     color: steelblue;
   }
 
-  .light p a {
+  .light p a, .light li a  {
 
     color: steelblue;
     text-decoration-color: var(--color-limegreen);
@@ -135,7 +148,7 @@
     color: steelblue;
   }
 
-  p a {
+  p a, li a {
     color: var(--color-limegreen);
   }
 
