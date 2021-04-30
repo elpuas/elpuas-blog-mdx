@@ -63,28 +63,28 @@ const Navigation = ( { open } ) => {
     return (
         <Ul open={open} >
             <li>
-                <MenuLinks paintDrip color={backgroundColor} to="/" duration={0.5} activeClassName="active">
-                Home
+                <MenuLinks paintDrip color={backgroundColor} to="/es/" duration={0.5} activeClassName="active">
+                Inicio
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/about" activeClassName="active">
-                About
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/es/about" activeClassName="active">
+                Acerca
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/what-i-do" activeClassName="active">
-                What I Do
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/es/what-i-do" activeClassName="active">
+               Que Hago
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/blog/1" activeClassName="active">
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/es/blog/1" activeClassName="active">
                 Blog
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks swipe top="exit" entryOffset={80} direction="left" color={backgroundColor} to="/es/" activeClassName="active">
-                ES
+                <MenuLinks swipe top="entry" entryOffset={80} direction="right" color={backgroundColor} to="/" activeClassName="active">
+                EN
                 </MenuLinks>
             </li>
             <li>

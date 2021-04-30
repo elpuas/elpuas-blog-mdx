@@ -53,6 +53,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false
+      }
+    },
+    {
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
         spreadsheetId: process.env.GATSBY_SPREADSHEET_ID,
