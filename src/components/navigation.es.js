@@ -78,7 +78,7 @@ const Navigation = ( { open } ) => {
                 </MenuLinks>
             </li>
             <li>
-                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/blog/1" activeClassName="active">
+                <MenuLinks paintDrip color={backgroundColor} duration={0.5} to="/es/blog/1" activeClassName="active">
                 Blog
                 </MenuLinks>
             </li>
