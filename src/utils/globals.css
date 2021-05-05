@@ -243,3 +243,7 @@
 
   @apply mb-16;
 }
+
+p + figure {
+  @apply my-8;
+}
