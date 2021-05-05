@@ -1,0 +1,81 @@
+---
+title: Deploy Gatsby a AWS Amplify
+author: Alfredo Navas
+date: 2021-05-05
+thumbnail: ../../images/wp-4-7.png
+language: ES
+---
+import Image from '../../components/image'
+
+Recientemente he estado probando varios servicios de alojamiento para mi sitio, tengo [elpuas.com](https://elpuas.com) en Netlify, tengo una version de pruebas en [Gatsby Cloud](https://elpuasblogmdxmaster.gtsb.io/), y ahora le toco el turno a AWS Amplify.
+
+Me di la tarea pues de seguir los pasos para crear un server para mi sitio.
+
+### Que es Amplify
+
+Aparte de la mala traducción al español, básicamente AWS Amplify es un conjunto de herramientas ( framework de código de abierto, un UI de administración, consola ) y servicios (alojamiento web estático) para acelerar el desarrollo de aplicaciones web y móviles en AWS.
+
+Como muchos de estos servicios, pueden empezar totalmente gratis, así pues veamos los pasos a seguir para tener mi sitio hecho con Gatsby en Amplify!
+
+### Crear una Cuenta Y Agregar mi Repo
+
+Para crear nuestra cuenta, nos vamos a [https://aws.amazon.com/amplify/](https://aws.amazon.com/amplify/)
+
+<Image fileName="amplify-6.png" style={{ width: '100%', height: '100%' }} alt="amplify-screen" />
+
+Si no tenemos cuenta nos creamos una, le damos click al boton de `Get started for free` o como decimos aqui en CR, demole de una, #sinmiedoalexito
+
+El link nos redirecciona a la siguiente url: [https://sandbox.amplifyapp.com/getting-started](https://sandbox.amplifyapp.com/getting-started), aqui tenemos dos opciones si quiero crear un backend o un Frontend, en mi caso le doy click en `Host my Web App` al boton `Connect app repo`.
+
+<Image fileName="amplify-7.png" style={{ width: '100%', height: '100%' }} alt="amplify-screen" />
+
+La verdad que pense que iba a ser un poco mas dificil pero, fue muy sencillo poner a correr mi sitio en Amplify claro es un sitio simple sin base de datos ( bueno uso Google Sheets para manejar algunos datos) o acceso a un API externa, una vez hemos creado nuestra cuenta, vamos agregar nuestro repo, similar a Netlify o Gatsby Cloud, autorizamos a AWS a accesar nuestro repo.
+
+![deniro](https://media.giphy.com/media/12ZDIx1Mw1cXVm/giphy.gif)
+
+
+<Image fileName="amplify-1.png" style={{ width: '100%', height: '100%' }} alt="amplify-admin" />
+
+
+Conectamos el branch desde el repositorio de GitHub, Bitbucket, GitLab o AWS CodeCommit. La conexión al repositorio permite a Amplify implementar actualizaciones en cada cambio de código en el branch.
+
+Luego conecté el branch `master` del repositorio le di click en Next( Siguiente si esta en espanol ):
+
+
+<Image fileName="amplify-2.png" style={{ width: '100%', height: '100%' }} alt="amplify-adminUI" />
+
+
+En esta vista, reviso la configuración de compilación predeterminada ( como en la imagen. ), aqui tambien puedes agregar tus ENV vars, o escoger, como en mi caso `gatsby build` en lugar de `npm run build` continuo..
+
+<Image fileName="amplify-3.png" style={{ width: '100%', height: '100%' }} alt="amplify-yml" />
+<Image fileName="amplify-4.png" style={{ width: '100%', height: '100%' }} alt="amplify-env-var" />
+
+
+
+Finalmente, reviso la configuracion una vez mas y si todo esta bien, le doy click en  `Save & Deploy` ( guardar e implementar ) para hacer el deploy de mi sitio.
+
+La consola de Amplify extraerá el código de mi repositorio, creará cambios en el frontend, y comenzara el deploy en `https://master.dq8tpziuyrsx7.amplifyapp.com/`. Como extra, hace capturas de pantalla de mi web en diferentes dispositivos para encontrar problemas de diseño 🔥
+
+![aws](https://media.giphy.com/media/MgRKCBGvlpqTENUzWk/giphy.gif)
+
+El deploy fue exitoso, puedo ver en el admin UI:
+
+
+<Image fileName="amplify-5.png" style={{ width: '100%', height: '100%' }} alt="amplify-deploy" />
+
+
+Pueden Visitar [elpuas](https://master.dq8tpziuyrsx7.amplifyapp.com/) en Amplify
+
+Ahora que mi sitio está arriba, y Amplify conectado a mi repo, cualquier cambio que haga en el branch va a disparar un nuevo deploy.
+
+![party](https://media.giphy.com/media/KzDqC8LvVC4lshCcGK/giphy.gif)
+
+Como pueden ver fue muy simple y tan solo pocos pasos tener mi sitio Gatsby en Amplify.
+
+Ahora que he aprendido a trabajar con Amplify Console, ¿cuáles son los siguientes pasos? Puedo agregar autenticación a mi aplicación en Gatsby o Crear un API con GraphQL.
+
+Tambien se pueden configurar los backends rápidamente con la interfaz de usuario de Amplify y los flujos de trabajo intuitivos del CLI para configurar backends de AWS escalables con autenticación, almacenamiento, datos y otros casos de uso comunes.
+
+<Image fileName="amplify-8.png" style={{ width: '100%', height: '100%' }} alt="amplify-tools" />
+
+Como siempre revisa primero la documentación, y gracias por llegar hasta aqui. 👍
