@@ -6,7 +6,7 @@ require("dotenv").config({
 const KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
 
 if (KEY_UNPARSE) {
-  KEY_UNPARSE.replace(/(\\r)|(\\n)/g, '\n')
+  KEY_UNPARSE.replace(/(\\r)|(\\n)/g, "\n")
 }
 
 module.exports = {
