@@ -3,11 +3,11 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
+const KEY_UNPARSE = JSON.parse(process.env.GATSBY_PRIVATE_KEY_SSH);
 
-if (KEY_UNPARSE) {
-  KEY_UNPARSE.replace(/\\n/gm, "\n");
-}
+// if (KEY_UNPARSE) {
+//   KEY_UNPARSE.replace(/\\n/gm, "\n");
+// }
 
 module.exports = {
   siteMetadata: {
