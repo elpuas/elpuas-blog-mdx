@@ -69,3 +69,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Custom
+pem.json
+pem_old.json

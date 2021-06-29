@@ -3,6 +3,16 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+let KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
+
+if (KEY_UNPARSE) {
+  KEY_UNPARSE.replace(/\\n/gm, "\n");
+}
+
+if ( KEY_UNPARSE && process.env.NODE_ENV === 'production') {
+  KEY_UNPARSE = JSON.parse(`${KEY_UNPARSE}`);
+}
+
 module.exports = {
   siteMetadata: {
     title: 'ElPuas | Web Artisan',
@@ -63,7 +73,18 @@ module.exports = {
       resolve: 'gatsby-source-google-spreadsheets',
       options: {
         spreadsheetId: process.env.GATSBY_SPREADSHEET_ID,
-        credentials: require('./client_credentials.json'),
+        credentials: {
+          type: 'service_account',
+          project_id: process.env.GATSBY_PROJECT_ID,
+          private_key_id: process.env.GATSBY_PRIVATE_KEY_ID,
+          private_key: KEY_UNPARSE,
+          client_email: process.env.GATSBY_CLIENT_EMAIL,
+          client_id: process.env.GATSBY_CLIENT_ID,
+          auth_uri: 'https://accounts.google.com/o/oauth2/auth',
+          token_uri: 'https://oauth2.googleapis.com/token',
+          auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
+          client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/gatsby-blog-db-606%40${process.env.GATSBY_PROJECT_ID}.iam.gserviceaccount.com`,
+        },
       }
     },
     'gatsby-plugin-dark-mode',
