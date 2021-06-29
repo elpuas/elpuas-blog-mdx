@@ -5,12 +5,12 @@ require("dotenv").config({
 
 const KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
 
-// if (KEY_UNPARSE) {
-//   KEY_UNPARSE.replace(/\\n/gm, "\n");
-// }
+if (KEY_UNPARSE) {
+  KEY_UNPARSE.replace(/\\n/gm, "\n");
+}
 
-if ( KEY_UNPARSE && process.env.NODE_ENV === 'production' ) {
-  KEY_UNPARSE = JSON.parse(`${KEY_UNPARSE.replace(/\\n/gm, "\n")}`);
+if ( KEY_UNPARSE && process.env.NODE_ENV === 'production') {
+  KEY_UNPARSE = JSON.parse(`${KEY_UNPARSE}`);
 }
 
 module.exports = {
