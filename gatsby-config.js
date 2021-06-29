@@ -3,7 +3,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
+let KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
 
 if (KEY_UNPARSE) {
   KEY_UNPARSE.replace(/\\n/gm, "\n");
