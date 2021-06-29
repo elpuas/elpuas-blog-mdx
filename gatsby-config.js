@@ -3,11 +3,15 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-// const KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
+const KEY_UNPARSE = process.env.GATSBY_PRIVATE_KEY_SSH;
 
 // if (KEY_UNPARSE) {
 //   KEY_UNPARSE.replace(/\\n/gm, "\n");
 // }
+
+if ( KEY_UNPARSE && process.env.NODE_ENV === 'production' ) {
+  KEY_UNPARSE = JSON.parse(`${KEY_UNPARSE.replace(/\\n/gm, "\n")}`);
+}
 
 module.exports = {
   siteMetadata: {
@@ -73,7 +77,7 @@ module.exports = {
           type: 'service_account',
           project_id: process.env.GATSBY_PROJECT_ID,
           private_key_id: process.env.GATSBY_PRIVATE_KEY_ID,
-          private_key: JSON.parse(`${process.env.GATSBY_PRIVATE_KEY_SSH}`),
+          private_key: KEY_UNPARSE,
           client_email: process.env.GATSBY_CLIENT_EMAIL,
           client_id: process.env.GATSBY_CLIENT_ID,
           auth_uri: 'https://accounts.google.com/o/oauth2/auth',
