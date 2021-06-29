@@ -9,10 +9,6 @@ if (KEY_UNPARSE) {
   KEY_UNPARSE.replace(/\\n/gm, "\n");
 }
 
-if ( KEY_UNPARSE && process.env.NODE_ENV === 'production') {
-  KEY_UNPARSE = JSON.parse(`${KEY_UNPARSE}`);
-}
-
 module.exports = {
   siteMetadata: {
     title: 'ElPuas | Web Artisan',
